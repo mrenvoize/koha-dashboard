@@ -1,0 +1,5 @@
+<ul>
+<li>Needs Signoff - <% status.${"Needs Signoff"}.count %></li>
+<li>Signed Off - <% status.${"Signed Off"}.count %></li>
+<li>Passed QA - <% status.${"Passed QA"}.count %></li>
+</ul>

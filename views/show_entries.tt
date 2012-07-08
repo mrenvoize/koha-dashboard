@@ -1,0 +1,132 @@
+<html>
+<head>
+<title> Koha Dashboard </title>
+<script src="jquery.min.js"></script>
+<link rel="stylesheet" href="http://koha-community.org/wp-content/themes/cordobo-green-park-2/style.css" type="text/css" media="all" /> 
+<style>
+#example_4 ul li { 
+padding-bottom:10px;
+}
+#content {
+padding:15px 20px 15px 10px;
+}
+</style>
+
+<script>
+function loadbugs(){
+  $.get('http://dashboard.koha-community.org/bug_status'
+  ,function(data){ 
+  $('#bugs').html(data);
+  }
+  )
+};
+
+function randombug(){
+  $.get('http://dashboard.koha-community.org/randombug'
+  ,function(data){ 
+  $('#random').html(data);
+  }
+  )
+  setTimeout(randombug, 10000);
+};
+
+
+function needsignoff(){
+  $.get('http://dashboard.koha-community.org/needsignoff'
+  ,function(data){ 
+  $('#needsignoff').html(data);
+  }
+  )
+  setTimeout(needsignoff, 100000);
+};
+
+function jenkins(){
+  $.getJSON('http://jenkins.koha-community.org/job/Koha_master/api/json',
+  function(data){
+    var health = data.healthReport;
+    var queue = data.inQueue;
+    $('#jenkins').html(data);
+    }
+    )
+    };
+
+
+$(document).ready(function(){
+         loadbugs();
+	 randombug();
+	 needsignoff();
+	 jenkins();
+});
+
+</script>
+
+</head>
+
+<body id="home">
+<div id="header" class="clearfix">
+<div id="branding">
+
+<h1 id="logo"><a href="/" title="Koha Library Software Community">Dashboard</a></h1>
+<div class="description">
+
+</div>
+</div>
+<div id="nav" class="clearfix">
+<div id="nav-search">
+</div>
+<ul id="menu">
+<li class="page-item-home  current_page_item "><a href="http://koha-community.org/">Home</a></li>
+<li class="page-item-home "><a href="http://wiki.koha-community.org/">Wiki</a></li>
+<li class="page-item-home "><a href="http://bugs.koha-community.org/">Bugzilla</a></li>
+<li class="page-item-home "><a href="http://jenkins.koha-community.org/">Jenkins</a></li>
+</ul>
+
+<div id="submenu-bg">
+</div>
+</div>
+</div>
+
+<div id="main" class="clearfix">
+<div id="container">
+<div id="content">
+
+
+<h3>Last 5 sign offs</h3>
+
+<span id="example_4">
+
+<ul>
+<% FOREACH entry IN entries %>
+<li><% entry.0 %> - <% entry.2 %> <br />
+<a href="http://bugs.koha-community.org/bugzilla3/show_bug.cgi?id=<% entry.1 %>"> <% entry.1 %></a> - <% entry.3 %> 
+</li>
+<% END %>
+</ul>
+                                       
+
+</span>
+<h3>Needs Signoff</h3>
+<div id="needsignoff">
+</div>
+
+<h3>Jenkins Status</h3>
+<div id="jenkins"></div>
+
+</div>
+</div>
+                                                 
+
+<div id="sidebar">
+<h3>Bug statuses</h3>
+<div id="bugs"></div>
+<h3>Random bug</h3>
+<div id="random"></div>
+<h3>Monthly Scoreboard - July</h3>
+<ul class="sb-list clearfix">
+<% FOREACH stat IN stats %>
+   <li><% stat.0 %> - <% stat.1 %></li>   
+<% END %>
+</ul>
+</div>
+</body>
+</html>

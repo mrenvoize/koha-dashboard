@@ -1,0 +1,3 @@
+<% FOREACH bug IN randombug %>
+<a href="http://bugs.koha-community.org/bugzilla3/show_bug.cgi?id=<% bug.0 %>"><% bug.0 %></a> <% bug.1 %>
+<% END %>
