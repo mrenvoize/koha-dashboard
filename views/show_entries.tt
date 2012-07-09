@@ -40,6 +40,33 @@ function needsignoff(){
   setTimeout(needsignoff, 100000);
 };
 
+function jenkins(){
+$.getJSON('http://jenkins.koha-community.org/api/json?jsonp='+"?&callback=?",
+  function(data){
+    $('#jenkins').html('<ul>');
+    var jobs = data.jobs;
+    for(var i=0;i<jobs.length;i++){
+      var name = jobs[i].name;
+      var colour = jobs[i].color;
+      var status;
+      if (colour === 'yellow') {
+         status = 'Unstable';
+	 }
+      else {
+        if (colour === 'blue'){
+	   status = 'Stable';
+	}
+	else {
+	   status = 'Broken';
+	}
+      }
+    $('#jenkins').append('<li>'+name+' - '+status+'</li>');
+    }
+    $('#jenkins').append('</ul>');
+    }
+    )
+    };
+
 $(document).ready(function(){
          loadbugs();
 	 randombug();
