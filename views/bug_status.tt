@@ -2,4 +2,6 @@
 <li>Needs Signoff - <% status.${"Needs Signoff"}.count %></li>
 <li>Signed Off - <% status.${"Signed Off"}.count %></li>
 <li>Passed QA - <% status.${"Passed QA"}.count %></li>
+<li>Failed QA - <% status.${"Failed QA"}.count %></li>
+<li>Patch Doesn't apply - <% status.${"Patch doesn't apply"}.count %></li>
 </ul>

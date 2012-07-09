@@ -40,17 +40,6 @@ function needsignoff(){
   setTimeout(needsignoff, 100000);
 };
 
-function jenkins(){
-  $.getJSON('http://jenkins.koha-community.org/job/Koha_master/api/json',
-  function(data){
-    var health = data.healthReport;
-    var queue = data.inQueue;
-    $('#jenkins').html(data);
-    }
-    )
-    };
-
-
 $(document).ready(function(){
          loadbugs();
 	 randombug();
@@ -110,7 +99,9 @@ $(document).ready(function(){
 </div>
 
 <h3>Jenkins Status</h3>
-<div id="jenkins"></div>
+<div id="jenkins">
+
+</div>
 
 </div>
 </div>
