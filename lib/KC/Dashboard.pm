@@ -1,7 +1,9 @@
-#!/usr/bin/perl
+package KC::Dashboard;
 
 # Script to create dashboard.koha-community.org
 # Copyright chris@bigballofwax.co.nz 2012
+
+our $VERSION = '0.1';
 
 use Dancer;
 use Dancer::Plugin::Database;
@@ -36,11 +38,16 @@ get '/' => sub {
     $sth = database->prepare($sql) or die database->errstr;
     $sth->execute or die $sth->errstr;
     my $stats = $sth->fetchall_arrayref;
+    $sql =  "SELECT count(*) as count ,subdate(current_date, 1) as yesterday FROM bugs_activity WHERE date(bug_when) = subdate(current_date, 1);";
+    $sth = database->prepare($sql) or die database->errstr;
+    $sth->execute or die $sth->errstr;
+    my $activity = $sth->fetchrow_hashref();
 
     template 'show_entries.tt',
       {
         'entries' => $entries,
         'stats'   => $stats,
+	'activity' => $activity,
       };
 };
 
@@ -56,7 +63,8 @@ get '/bug_status' => sub {
 
 get '/randombug' => sub {
     my $sql =
-"SELECT * FROM (SELECT bug_id,short_desc FROM bugs WHERE bug_status NOT in ('CLOSED','RESOLVED','Pushed to Master','Pushed to Stable','VERIFIED') ) AS bugs2 ORDER BY rand() LIMIT 1";
+"SELECT * FROM (SELECT bug_id,short_desc FROM bugs WHERE bug_status NOT in 
+    ('CLOSED','RESOLVED','Pushed to Master','Pushed to Stable','VERIFIED', 'Signed Off', 'Passed QA') ) AS bugs2 ORDER BY rand() LIMIT 1";
     my $sth = database->prepare($sql) or die database->errstr;
     $sth->execute or die $sth->errstr;
 
@@ -72,5 +80,5 @@ get '/needsignoff' => sub {
 
 };
 
-start;
+true;
 

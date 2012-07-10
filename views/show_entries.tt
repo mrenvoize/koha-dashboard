@@ -14,6 +14,7 @@ padding-bottom:10px;
 #content {
 padding:15px 20px 15px 10px;
 }
+#jenkins {margin-left: 10px;}
 </style>
 
 <script type="text/javascript">
@@ -64,12 +65,12 @@ $.getJSON('http://jenkins.koha-community.org/api/json?jsonp='+"?&callback=?",
            status = 'Broken';
         }
       }
-    $('#jenkins').append('<li>'+name+' - '+status+'<\/li>');
+    $('#jenkins').append('<li>'+name+' - '+status+'</li>');
     }
-    $('#jenkins').append('<\/ul>');
+    $('#jenkins').append('</ul>');
     }
-    )
-    };
+)
+};
 
 $(document).ready(function(){
          loadbugs();
@@ -101,18 +102,23 @@ $(document).ready(function(){
 <div id="container">
 <div id="content">
 <h3>Last 5 sign offs</h3>
+<span id="example_4">
 <ul><% FOREACH entry IN entries %>
-<li><span id="example_4"><% entry.0 %> - <% entry.2 %><br>
-<a href="http://bugs.koha-community.org/bugzilla3/show_bug.cgi?id=%3C%%20entry.1%20%%3E"><% entry.1 %></a> - <% entry.3 %></span></li>
+<li><% entry.0 %> - <% entry.2 %><br>
+<a href="http://bugs.koha-community.org/bugzilla3/show_bug.cgi?id=%3C%%20entry.1%20%%3E"><% entry.1 %></a> - <% entry.3 %></li>
 <% END %>
 </ul>
+</span>
 <h3>Needs Signoff</h3>
+<b>5 Oldest bugs </b>
 <div id="needsignoff"></div>
 <h3>Jenkins Status</h3>
 <div id="jenkins"></div>
 </div>
 </div>
 <div id="sidebar">
+<h3>Bug activity for <% activity.yesterday %></h3>
+<% activity.count %> changes
 <h3>Bug statuses</h3>
 <div id="bugs"></div>
 <h3>Random bug</h3>
