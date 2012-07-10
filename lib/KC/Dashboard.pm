@@ -34,20 +34,30 @@ get '/' => sub {
     $sth->execute or die $sth->errstr;
     my $entries = $sth->fetchall_arrayref;
     $sql =
-"select realname,count(*) from bugs_activity,profiles,bugs where bugs_activity.who=profiles.userid and bugs.bug_id=bugs_activity.bug_id and added='Signed Off' and bug_when >= '2012-07-01' and bug_when < '2012-08-01' group by realname,added order by count(*) desc;";
+"SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added='Signed Off' and bug_when >= '2012-07-01' AND bug_when < '2012-08-01' GROUP BY realname,added ORDER BY count(*) desc;";
     $sth = database->prepare($sql) or die database->errstr;
     $sth->execute or die $sth->errstr;
     my $stats = $sth->fetchall_arrayref;
-    $sql =  "SELECT count(*) as count ,subdate(current_date, 1) as yesterday FROM bugs_activity WHERE date(bug_when) = subdate(current_date, 1);";
+    $sql =  "SELECT count(*) as count ,subdate(current_date, 1) as day FROM bugs_activity WHERE date(bug_when) = subdate(current_date, 1);";
     $sth = database->prepare($sql) or die database->errstr;
     $sth->execute or die $sth->errstr;
-    my $activity = $sth->fetchrow_hashref();
+    my $yesterday = $sth->fetchrow_hashref();
+    $sql =  "SELECT count(*) as count, current_date as day FROM bugs_activity WHERE date(bug_when) = current_date;";
+    $sth = database->prepare($sql) or die database->errstr;
+    $sth->execute or die $sth->errstr;
+    my $today = $sth->fetchrow_hashref();
+    $sql =  "SELECT count(*) as count ,subdate(current_date, 2) as day FROM bugs_activity WHERE date(bug_when) = subdate(current_date, 2);";
+    $sth = database->prepare($sql) or die database->errstr;
+    $sth->execute or die $sth->errstr;
+    my $daybefore = $sth->fetchrow_hashref();
 
     template 'show_entries.tt',
       {
         'entries' => $entries,
         'stats'   => $stats,
-	'activity' => $activity,
+	'yesterday' => $yesterday,
+	'today' => $today,
+	'daybefore' => $daybefore,
       };
 };
 

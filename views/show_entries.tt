@@ -117,8 +117,13 @@ $(document).ready(function(){
 </div>
 </div>
 <div id="sidebar">
-<h3>Bug activity for <% activity.yesterday %></h3>
-<% activity.count %> changes
+<h4>Bug activity for <% daybefore.day %></h4>
+<% daybefore.count %> changes
+<h4>Bug activity for <% yesterday.day %></h4>
+<% yesterday.count %> changes
+<h4>Bug activity for <% today.day %></h4>
+<% today.count %> changes
+
 <h3>Bug statuses</h3>
 <div id="bugs"></div>
 <h3>Random bug</h3>
