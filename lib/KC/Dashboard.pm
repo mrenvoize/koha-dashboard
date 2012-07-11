@@ -17,9 +17,6 @@ my $password;
 
 set 'session' => 'Simple';
 
-# set 'template'     => 'template_toolkit';
-# set 'logger'       => 'console';
-# set 'log'          => 'debug';
 set 'show_errors'  => 1;
 set 'startup_info' => 1;
 set 'warnings'     => 1;
@@ -50,7 +47,12 @@ get '/' => sub {
     $sth = database->prepare($sql) or die database->errstr;
     $sth->execute or die $sth->errstr;
     my $daybefore = $sth->fetchrow_hashref();
-
+    $sql = "SELECT bugs.bug_id,short_desc FROM bugs,bugs_activity WHERE bugs.bug_id = bugs_activity.bug_id
+AND added = 'Pushed to Master' AND bug_severity = 'enhancement' ORDER BY bug_when LIMIT 5";
+    $sth = database->prepare($sql) or die database->errstr;
+    $sth->execute or die $sth->errstr;
+    my $enhancement = $sth->fetchall_arrayref;
+    
     template 'show_entries.tt',
       {
         'entries' => $entries,
@@ -58,6 +60,7 @@ get '/' => sub {
 	'yesterday' => $yesterday,
 	'today' => $today,
 	'daybefore' => $daybefore,
+        'enhancments' => $enhancement,
       };
 };
 

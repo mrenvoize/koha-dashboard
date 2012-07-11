@@ -105,23 +105,30 @@ $(document).ready(function(){
 <span id="example_4">
 <ul><% FOREACH entry IN entries %>
 <li><% entry.0 %> - <% entry.2 %><br>
-<a href="http://bugs.koha-community.org/bugzilla3/show_bug.cgi?id=%3C%%20entry.1%20%%3E"><% entry.1 %></a> - <% entry.3 %></li>
+<a href="http://bugs.koha-community.org/bugzilla3/show_bug.cgi?id=<% entry.1 %>"><% entry.1 %></a> - <% entry.3 %></li>
 <% END %>
 </ul>
 </span>
 <h3>Needs Signoff</h3>
 <b>5 Oldest bugs </b>
 <div id="needsignoff"></div>
+<h3>New features recently pushed</h3>
+<ul>
+<% FOREACH enhancement IN enhancments %>
+<li><a href="http://bugs.koha-community.org/bugzilla3/show_bug.cgi?id=<% enhancement.0 %>"><% enhancement.0%></a> -  <% enhancement.1 %></li>
+<% END %>
+</ul>
 <h3>Jenkins Status</h3>
 <div id="jenkins"></div>
 </div>
 </div>
 <div id="sidebar">
-<h4>Bug activity for <% daybefore.day %></h4>
-<% daybefore.count %> changes
-<h4>Bug activity for <% yesterday.day %></h4>
-<% yesterday.count %> changes
-<h4>Bug activity for <% today.day %></h4>
+<h3>Bug activity </h3>
+<% daybefore.day %> - 
+<% daybefore.count %> changes <br/>
+<% yesterday.day %> - 
+<% yesterday.count %> changes <br />
+<% today.day %> - 
 <% today.count %> changes
 
 <h3>Bug statuses</h3>
