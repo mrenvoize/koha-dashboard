@@ -33,11 +33,12 @@ sub get_dates {
     open( my $FH, '<', 'data/dates.txt' );
     my @dates;
     while ( my $line = <$FH> ) {
-        my ( $date, $desc ) = split( '|', $line );
+        my ( $date, $desc ) = split( /\|/, $line );
         my $daterow = {
             'date' => $date,
             'desc' => $desc
-        } push @dates, $daterow;
+        };
+        push @dates, $daterow;
     }
     close $FH;
     return \@dates;

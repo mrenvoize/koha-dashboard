@@ -1,0 +1,5 @@
+2012-07-15|String freeze for 3.6.7
+2012-07-15|String freeze for 3.8.3
+2012-07-22|Release date for 3.6.7
+2012-07-22|Release date for 3.8.3
+2012-10-22|Release date for 3.10.0

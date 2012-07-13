@@ -115,7 +115,7 @@ $(document).ready(function(){
 <h3>New features recently pushed</h3>
 <ul>
 <% FOREACH enhancement IN enhancments %>
-<li><a href="http://bugs.koha-community.org/bugzilla3/show_bug.cgi?id=<% enhancement.0 %>"><% enhancement.0%></a> -  <% enhancement.1 %></li>
+<li><a href="http://bugs.koha-community.org/bugzilla3/show_bug.cgi?id=<% enhancement.0 %>"><% enhancement.0%></a> -  <% enhancement.1 %> - <% enhancement.2 %></li>
 <% END %>
 </ul>
 <h3>Jenkins Status</h3>
@@ -139,6 +139,12 @@ $(document).ready(function(){
 <ul class="sb-list clearfix"><% FOREACH stat IN stats %>
 <li><% stat.0 %>- <% stat.1 %></li>
 <% END %></ul>
+<h3>Important Dates</h3>
+<ul>
+<% FOREACH date IN dates %>
+<li><% date.date %> - <% date.desc %></li>
+<% END %>
+</ul>
 </div>
 </div>
 </body>
