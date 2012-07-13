@@ -35,31 +35,35 @@ get '/' => sub {
     $sth = database->prepare($sql) or die database->errstr;
     $sth->execute or die $sth->errstr;
     my $stats = $sth->fetchall_arrayref;
-    $sql =  "SELECT count(*) as count ,subdate(current_date, 1) as day FROM bugs_activity WHERE date(bug_when) = subdate(current_date, 1);";
+    $sql =
+"SELECT count(*) as count ,subdate(current_date, 1) as day FROM bugs_activity WHERE date(bug_when) = subdate(current_date, 1);";
     $sth = database->prepare($sql) or die database->errstr;
     $sth->execute or die $sth->errstr;
     my $yesterday = $sth->fetchrow_hashref();
-    $sql =  "SELECT count(*) as count, current_date as day FROM bugs_activity WHERE date(bug_when) = current_date;";
+    $sql =
+"SELECT count(*) as count, current_date as day FROM bugs_activity WHERE date(bug_when) = current_date;";
     $sth = database->prepare($sql) or die database->errstr;
     $sth->execute or die $sth->errstr;
     my $today = $sth->fetchrow_hashref();
-    $sql =  "SELECT count(*) as count ,subdate(current_date, 2) as day FROM bugs_activity WHERE date(bug_when) = subdate(current_date, 2);";
+    $sql =
+"SELECT count(*) as count ,subdate(current_date, 2) as day FROM bugs_activity WHERE date(bug_when) = subdate(current_date, 2);";
     $sth = database->prepare($sql) or die database->errstr;
     $sth->execute or die $sth->errstr;
     my $daybefore = $sth->fetchrow_hashref();
-    $sql = "SELECT bugs.bug_id,short_desc FROM bugs,bugs_activity WHERE bugs.bug_id = bugs_activity.bug_id
+    $sql =
+"SELECT bugs.bug_id,short_desc FROM bugs,bugs_activity WHERE bugs.bug_id = bugs_activity.bug_id
 AND added = 'Pushed to Master' AND bug_severity = 'enhancement' ORDER BY bug_when desc LIMIT 5";
     $sth = database->prepare($sql) or die database->errstr;
     $sth->execute or die $sth->errstr;
     my $enhancement = $sth->fetchall_arrayref;
-    
+
     template 'show_entries.tt',
       {
-        'entries' => $entries,
-        'stats'   => $stats,
-	'yesterday' => $yesterday,
-	'today' => $today,
-	'daybefore' => $daybefore,
+        'entries'     => $entries,
+        'stats'       => $stats,
+        'yesterday'   => $yesterday,
+        'today'       => $today,
+        'daybefore'   => $daybefore,
         'enhancments' => $enhancement,
       };
 };
