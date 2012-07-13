@@ -48,7 +48,7 @@ get '/' => sub {
     $sth->execute or die $sth->errstr;
     my $daybefore = $sth->fetchrow_hashref();
     $sql = "SELECT bugs.bug_id,short_desc FROM bugs,bugs_activity WHERE bugs.bug_id = bugs_activity.bug_id
-AND added = 'Pushed to Master' AND bug_severity = 'enhancement' ORDER BY bug_when LIMIT 5";
+AND added = 'Pushed to Master' AND bug_severity = 'enhancement' ORDER BY bug_when desc LIMIT 5";
     $sth = database->prepare($sql) or die database->errstr;
     $sth->execute or die $sth->errstr;
     my $enhancement = $sth->fetchall_arrayref;
