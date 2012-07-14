@@ -7,6 +7,7 @@ our $VERSION = '0.1';
 
 use Dancer;
 use Dancer::Plugin::Database;
+use Dancer::Plugin::Redis;
 use KC::Data ':all';
 use strict;
 use warnings;
@@ -59,7 +60,13 @@ AND added = 'Pushed to Master' AND bug_severity = 'enhancement' ORDER BY bug_whe
     my $enhancement = $sth->fetchall_arrayref;
     my $dates       = get_dates();
     my $devs        = get_devs();
-    my $ohloh       = ohloh_activity();
+    my $ohloh       = redis->get('ohloh');
+
+    if ( !$ohloh ) {
+        $ohloh = ohloh_activity();
+        redis->set( 'ohloh' => $ohloh );
+        redis->expire( 'ohloh', 6000 );
+    }
     template 'show_entries.tt',
       {
         'entries'     => $entries,
@@ -75,7 +82,12 @@ AND added = 'Pushed to Master' AND bug_severity = 'enhancement' ORDER BY bug_whe
 };
 
 get '/ohloh' => sub {
-    my $ohloh = ohloh_activity();
+    my $ohloh;
+    $ohloh = redis->get('ohloh');
+    if ( !$ohloh ) {
+        $ohloh = ohloh_activity();
+        redis->set( 'ohloh' => $ohloh );
+    }
     template 'ohloh.tt', { 'ohloh' => $ohloh };
 };
 
