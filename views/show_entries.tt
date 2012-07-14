@@ -94,6 +94,7 @@ $(document).ready(function(){
 <li class="page-item-home"><a href="http://wiki.koha-community.org/">Wiki</a></li>
 <li class="page-item-home"><a href="http://bugs.koha-community.org/">Bugzilla</a></li>
 <li class="page-item-home"><a href="http://jenkins.koha-community.org/">Jenkins</a></li>
+<li class="page-item-home"><a href="http://wiki.koha-community.org/wiki/Sandboxes">Sandboxes</a></li>
 </ul>
 <div id="submenu-bg"></div>
 </div>
@@ -150,6 +151,16 @@ $(document).ready(function(){
 <% FOREACH date IN dates %>
 <li><% date.date %> - <% date.desc %></li>
 <% END %>
+</ul>
+<h3>June commit statistics - Master</h2>
+<% i = ohloh.result.activity_fact.size - 2 %>
+<% activity = ohloh.result.activity_fact.$i %>
+<% use Dumper %>
+<ul>
+<li>Commits - <% activity.commits %></li>
+<li>Contributors - <% activity.contributors %></li>
+<li>Code Added - <% activity.code_added %></li>
+<li>Code Removed - <% activity.code_removed %></li>
 </ul>
 </div>
 </div>

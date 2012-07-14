@@ -57,8 +57,9 @@ AND added = 'Pushed to Master' AND bug_severity = 'enhancement' ORDER BY bug_whe
     $sth = database->prepare($sql) or die database->errstr;
     $sth->execute or die $sth->errstr;
     my $enhancement = $sth->fetchall_arrayref;
-    my $dates = get_dates();
-    my $devs = get_devs();
+    my $dates       = get_dates();
+    my $devs        = get_devs();
+    my $ohloh       = ohloh_activity();
     template 'show_entries.tt',
       {
         'entries'     => $entries,
@@ -69,7 +70,13 @@ AND added = 'Pushed to Master' AND bug_severity = 'enhancement' ORDER BY bug_whe
         'enhancments' => $enhancement,
         'dates'       => $dates,
         'devs'        => $devs,
+        'ohloh'       => $ohloh,
       };
+};
+
+get '/ohloh' => sub {
+    my $ohloh = ohloh_activity();
+    template 'ohloh.tt', { 'ohloh' => $ohloh };
 };
 
 get '/bug_status' => sub {
