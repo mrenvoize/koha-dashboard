@@ -14,7 +14,7 @@ our @ISA = qw(Exporter);
 our %EXPORT_TAGS = (
     'all' => [
         qw(
-          get_dates
+          get_dates get_devs
           )
     ]
 );
@@ -43,6 +43,19 @@ sub get_dates {
     close $FH;
     return \@dates;
 
+}
+
+sub get_devs {
+    open( my $FH, '<', 'data/devs.txt' );
+    my @devs;
+    while ( my $line = <$FH> ) {
+        my $devrow = {
+            'dev' => $line
+        };
+        push @devs, $devrow;
+    }
+    close $FH;
+    return \@devs;
 }
 
 1;

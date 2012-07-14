@@ -118,6 +118,12 @@ $(document).ready(function(){
 <li><a href="http://bugs.koha-community.org/bugzilla3/show_bug.cgi?id=<% enhancement.0 %>"><% enhancement.0%></a> -  <% enhancement.1 %> - <% enhancement.2 %></li>
 <% END %>
 </ul>
+<h3> New Developers </h3>
+<ul>
+<% FOREACH dev IN devs %>
+<li><% dev.dev %></li>
+<% END %>
+</ul>
 <h3>Jenkins Status</h3>
 <div id="jenkins"></div>
 </div>

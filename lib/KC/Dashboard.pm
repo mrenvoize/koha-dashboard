@@ -58,6 +58,7 @@ AND added = 'Pushed to Master' AND bug_severity = 'enhancement' ORDER BY bug_whe
     $sth->execute or die $sth->errstr;
     my $enhancement = $sth->fetchall_arrayref;
     my $dates = get_dates();
+    my $devs = get_devs();
     template 'show_entries.tt',
       {
         'entries'     => $entries,
@@ -67,6 +68,7 @@ AND added = 'Pushed to Master' AND bug_severity = 'enhancement' ORDER BY bug_whe
         'daybefore'   => $daybefore,
         'enhancments' => $enhancement,
         'dates'       => $dates,
+        'devs'        => $devs,
       };
 };
 
