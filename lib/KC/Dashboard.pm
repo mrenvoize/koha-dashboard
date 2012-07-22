@@ -60,13 +60,13 @@ AND added = 'Pushed to Master' AND bug_severity = 'enhancement' ORDER BY bug_whe
     my $enhancement = $sth->fetchall_arrayref;
     my $dates       = get_dates();
     my $devs        = get_devs();
-    my $ohloh       = redis->get('ohloh');
+#    my $ohloh       = redis->get('ohloh');
 
-    if ( !$ohloh ) {
-        $ohloh = ohloh_activity();
-        redis->set( 'ohloh' => $ohloh );
-        redis->expire( 'ohloh', 6000 );
-    }
+#    if ( !$ohloh ) {
+my        $ohloh = ohloh_activity();
+#        redis->set( 'ohloh' => $ohloh );
+#        redis->expire( 'ohloh', 6000 );
+#    }
     template 'show_entries.tt',
       {
         'entries'     => $entries,
@@ -79,16 +79,6 @@ AND added = 'Pushed to Master' AND bug_severity = 'enhancement' ORDER BY bug_whe
         'devs'        => $devs,
         'ohloh'       => $ohloh,
       };
-};
-
-get '/ohloh' => sub {
-    my $ohloh;
-    $ohloh = redis->get('ohloh');
-    if ( !$ohloh ) {
-        $ohloh = ohloh_activity();
-        redis->set( 'ohloh' => $ohloh );
-    }
-    template 'ohloh.tt', { 'ohloh' => $ohloh };
 };
 
 get '/bug_status' => sub {

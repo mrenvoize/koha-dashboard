@@ -151,17 +151,18 @@ $(document).ready(function(){
 <% FOREACH date IN dates %>
 <li><% date.date %> - <% date.desc %></li>
 <% END %>
+<% IF ohloh %>
 </ul>
 <h3>June commit statistics - Master</h2>
 <% i = ohloh.result.activity_fact.size - 2 %>
 <% activity = ohloh.result.activity_fact.$i %>
-<% use Dumper %>
 <ul>
 <li>Commits - <% activity.commits %></li>
 <li>Contributors - <% activity.contributors %></li>
 <li>Code Added - <% activity.code_added %></li>
 <li>Code Removed - <% activity.code_removed %></li>
 </ul>
+<% END %>
 </div>
 </div>
 </body>

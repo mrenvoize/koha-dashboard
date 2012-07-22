@@ -6,6 +6,7 @@ use warnings;
 
 use LWP::Simple;
 use XML::Simple;
+use DateTime;
 
 require Exporter;
 
@@ -35,13 +36,17 @@ sub get_dates {
     # subroutine to parse a date file and put it into a form suitable for TT
     open( my $FH, '<', 'data/dates.txt' );
     my @dates;
+    my $today = DateTime->now->ymd;
     while ( my $line = <$FH> ) {
         my ( $date, $desc ) = split( /\|/, $line );
         my $daterow = {
             'date' => $date,
             'desc' => $desc
         };
-        push @dates, $daterow;
+        if ( $date gt $today ) {
+            push @dates, $daterow;
+        }
+
     }
     close $FH;
     return \@dates;
