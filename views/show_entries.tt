@@ -153,8 +153,8 @@ $(document).ready(function(){
 <% END %>
 <% IF ohloh %>
 </ul>
-<h3>June commit statistics - Master</h2>
-<% i = ohloh.result.activity_fact.size - 2 %>
+<h3>July commit statistics - Master</h2>
+<% i = ohloh.result.activity_fact.size - 1 %>
 <% activity = ohloh.result.activity_fact.$i %>
 <ul>
 <li>Commits - <% activity.commits %></li>
