@@ -62,9 +62,14 @@ $.getJSON('http://jenkins.koha-community.org/api/json?jsonp='+"?&callback=?",
            status = 'Stable';
         }
         else {
-           status = 'Broken';
-        }
-      }
+            if (colour === 'disabled') {
+                 status = 'Obsolete';
+            }
+            else {
+                 status = 'Broken';
+            }
+       }
+    }
     $('#jenkins').append('<li>'+name+' - '+status+'</li>');
     }
     $('#jenkins').append('</ul>');
@@ -142,7 +147,7 @@ $(document).ready(function(){
 <div id="bugs"></div>
 <h3>Random bug</h3>
 <div id="random"></div>
-<h3>Monthly Scoreboard - July</h3>
+<h3>Monthly Scoreboard - September</h3>
 <ul class="sb-list clearfix"><% FOREACH stat IN stats %>
 <li><% stat.0 %>- <% stat.1 %></li>
 <% END %></ul>
@@ -153,7 +158,7 @@ $(document).ready(function(){
 <% END %>
 <% IF ohloh %>
 </ul>
-<h3>July commit statistics - Master</h2>
+<h3>September commit statistics - Master</h2>
 <% i = ohloh.result.activity_fact.size - 1 %>
 <% activity = ohloh.result.activity_fact.$i %>
 <ul>

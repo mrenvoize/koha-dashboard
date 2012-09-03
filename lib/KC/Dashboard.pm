@@ -33,7 +33,7 @@ get '/' => sub {
     $sth->execute or die $sth->errstr;
     my $entries = $sth->fetchall_arrayref;
     $sql =
-"SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added='Signed Off' and bug_when >= '2012-07-01' AND bug_when < '2012-08-01' GROUP BY realname,added ORDER BY count(*) desc;";
+"SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added='Signed Off' and bug_when >= '2012-09-01' AND bug_when < '2012-10-01' GROUP BY realname,added ORDER BY count(*) desc;";
     $sth = database->prepare($sql) or die database->errstr;
     $sth->execute or die $sth->errstr;
     my $stats = $sth->fetchall_arrayref;
