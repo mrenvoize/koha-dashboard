@@ -1,7 +1,0 @@
-<ul>
-<% FOREACH bug IN needsignoff %>
-<li><a
-href="http://bugs.koha-community.org/bugzilla3/show_bug.cgi?id=<%
-bug.0 %>"><% bug.0 %></a> <% bug.1 %></li>
-<% END %>
-</ul>

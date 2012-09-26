@@ -1,7 +1,6 @@
-<ul>
-<li>Needs Signoff - <% status.${"Needs Signoff"}.count %></li>
-<li>Signed Off - <% status.${"Signed Off"}.count %></li>
-<li>Passed QA - <% status.${"Passed QA"}.count %></li>
-<li>Failed QA - <% status.${"Failed QA"}.count %></li>
-<li>Patch Doesn't apply - <% status.${"Patch doesn't apply"}.count %></li>
-</ul>
+<tr><td>Needs Signoff</td><td><% status.${"Needs Signoff"}.count %></td></tr>
+<tr><td>Signed Off</td><td><% status.${"Signed Off"}.count %></td></tr>
+<tr><td>Passed QA</td><td><% status.${"Passed QA"}.count %></td></tr>
+<tr><td>Failed QA</td><td><% status.${"Failed QA"}.count %></td></tr>
+<tr><td>Patch Doesn't apply</td><td><% status.${"Patch doesn't apply"}.count %></td></tr>
+

@@ -1,0 +1,17 @@
+appname: "dashboard"
+
+# extra dancer/plack debug stuff, very nice!
+#plack_middlewares:
+#  -
+#    - Debug
+#    - panels
+#    -
+#          - Parameters
+#          - Dancer::Version
+#          - Dancer::Settings
+#          - Dancer::Logger
+#          - DBITrace
+#          - Memory
+#          - Timer
+#
+# yaml needs an empty line after this, dont delete...

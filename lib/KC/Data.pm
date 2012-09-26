@@ -6,9 +6,16 @@ use warnings;
 
 use LWP::Simple;
 use XML::Simple;
+use Dancer::Debug;
+
 use DateTime;
 
+use Data::Dumper;
+
 require Exporter;
+
+#use Dancer;
+#set log => 'debug';
 
 our @ISA = qw(Exporter);
 
@@ -18,18 +25,17 @@ our @ISA = qw(Exporter);
 our %EXPORT_TAGS = (
     'all' => [
         qw(
-          get_dates get_devs ohloh_activity
+          get_dates ohloh_activity ohloh_devs
           )
     ]
 );
 
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
-
 our @EXPORT = qw(
 
 );
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 sub get_dates {
 
@@ -46,22 +52,9 @@ sub get_dates {
         if ( $date gt $today ) {
             push @dates, $daterow;
         }
-
     }
     close $FH;
     return \@dates;
-
-}
-
-sub get_devs {
-    open( my $FH, '<', 'data/devs.txt' );
-    my @devs;
-    while ( my $line = <$FH> ) {
-        my $devrow = { 'dev' => $line };
-        push @devs, $devrow;
-    }
-    close $FH;
-    return \@devs;
 }
 
 sub ohloh_activity {
@@ -75,8 +68,43 @@ sub ohloh_activity {
     my $xml = eval { XMLin($response) } or return;
 
     # was the request a success?
-    return
-      unless $xml->{status} eq 'success';
+    return unless $xml->{status} eq 'success';
     return $xml;
 }
+
+sub ohloh_devs {
+    my $url =
+"http://www.ohloh.net/p/koha/contributors.xml?api_key=ad98f4080e21c596b62c9315f6c7a4c8b08af082&sort=newest";
+
+    # get the url from the server
+    my $response = get $url or return;
+    # parse the XML response
+    my $xml = eval { XMLin($response) } or return;
+    # was the request a success?
+    return unless $xml->{status} eq 'success';
+
+    my @a1;
+    my $i = 0;
+    while ( $i <= 10 ) {
+
+        my $date =
+          $xml->{'result'}->{'contributor_fact'}->[$i]->{'first_commit_time'};
+        $date =~ s/T.*//;
+
+        my $o2 = {
+            'name' => $xml->{'result'}->{'contributor_fact'}->[$i]
+              ->{'contributor_name'},
+            'date' => $date,
+            'id' =>
+              $xml->{'result'}->{'contributor_fact'}->[$i]->{'contributor_id'},
+        };
+        push @a1, $o2;
+        $i++;
+    }
+
+    #print   Dumper $xml;
+    return \@a1;
+
+}
+
 __END__
