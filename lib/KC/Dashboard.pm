@@ -34,15 +34,6 @@ set logger => 'console';
 
 use Data::Dumper;
 
-set plugins => {
-    Database => {
-        driver   => 'mysql',
-        database => "kc_bugs",
-        host     => "miso",
-        username => "kc_bugs",
-        password => "kc_bugs", #woah, hardcoded passwd!
-    }
-};
 
 # -----------------------------
 get '/' => sub {
@@ -70,7 +61,7 @@ join profiles on bugs.reporter=profiles.userid
     my $oldest_needs_signoff = $sth->fetchall_arrayref;
 
     #$oldest_needs_signoff->{widget_title} = 'moof';
-    $sth->fetchall_arrayref;
+#    $sth->fetchall_arrayref;
 
     # -----------------------------
 
