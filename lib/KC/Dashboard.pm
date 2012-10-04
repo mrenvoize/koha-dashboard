@@ -33,7 +33,7 @@ get '/' => sub {
     $sth->execute or die $sth->errstr;
     my $entries = $sth->fetchall_arrayref;
     $sql =
-"SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added='Signed Off' and bug_when >= '2012-09-01' AND bug_when < '2012-10-01' GROUP BY realname,added ORDER BY count(*) desc;";
+"SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added='Signed Off' and bug_when >= '2012-10-01' AND bug_when < '2012-11-01' GROUP BY realname,added ORDER BY count(*) desc;";
     $sth = database->prepare($sql) or die database->errstr;
     $sth->execute or die $sth->errstr;
     my $stats = $sth->fetchall_arrayref;
@@ -103,7 +103,7 @@ get '/randombug' => sub {
 
 get '/needsignoff' => sub {
     my $sql = "SELECT bugs.bug_id,short_desc FROM bugs
-               WHERE bug_status ='Needs Signoff' ORDER by lastdiffed limit 5;";
+               WHERE bug_status ='Needs Signoff' and bug_severity <> 'enhancement' ORDER by lastdiffed limit 10;";
     my $sth = database->prepare($sql) or die database->errstr;
     $sth->execute or die $sth->errstr;
     template 'needsignoff.tt', { 'needsignoff' => $sth->fetchall_arrayref };
