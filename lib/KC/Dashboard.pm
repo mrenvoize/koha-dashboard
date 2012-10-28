@@ -63,7 +63,7 @@ AND added = 'Pushed to Master' AND bug_severity = 'enhancement' ORDER BY bug_whe
 #    my $ohloh       = redis->get('ohloh');
 
 #    if ( !$ohloh ) {
-my        $ohloh = ohloh_activity();
+# my        $ohloh = ohloh_activity();
 #        redis->set( 'ohloh' => $ohloh );
 #        redis->expire( 'ohloh', 6000 );
 #    }
@@ -77,7 +77,7 @@ my        $ohloh = ohloh_activity();
         'enhancments' => $enhancement,
         'dates'       => $dates,
         'devs'        => $devs,
-        'ohloh'       => $ohloh,
+#        'ohloh'       => $ohloh,
       };
 };
 

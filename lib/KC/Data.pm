@@ -4,7 +4,7 @@ use 5.010001;
 use strict;
 use warnings;
 
-use LWP::Simple;
+use LWP::Simple qw($ua get);
 use XML::Simple;
 use DateTime;
 
@@ -67,7 +67,6 @@ sub get_devs {
 sub ohloh_activity {
     my $url =
 "http://www.ohloh.net/projects/koha/analyses/latest/activity_facts.xml?api_key=ad98f4080e21c596b62c9315f6c7a4c8b08af082";
-
     # get the url from the server
     my $response = get $url or return;
 
