@@ -33,10 +33,16 @@ get '/' => sub {
     $sth->execute or die $sth->errstr;
     my $entries = $sth->fetchall_arrayref;
     $sql =
-"SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added='Signed Off' and bug_when >= '2012-10-01' AND bug_when < '2012-11-01' GROUP BY realname,added ORDER BY count(*) desc;";
+"SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added='Signed Off' and bug_when >= '2012-12-01' AND bug_when < '2013-01-01' GROUP BY realname,added ORDER BY count(*) desc;";
     $sth = database->prepare($sql) or die database->errstr;
     $sth->execute or die $sth->errstr;
     my $stats = $sth->fetchall_arrayref;
+    $sql =
+"SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added='Passed QA' and bug_when >= '2012-12-01' AND bug_when < '2013-01-01' GROUP BY realname,added ORDER BY count(*) desc;";
+    $sth = database->prepare($sql) or die database->errstr;
+    $sth->execute or die $sth->errstr;
+    my $qa = $sth->fetchall_arrayref;
+
     $sql =
 "SELECT count(*) as count ,subdate(current_date, 1) as day FROM bugs_activity WHERE date(bug_when) = subdate(current_date, 1);";
     $sth = database->prepare($sql) or die database->errstr;
@@ -60,15 +66,15 @@ AND added = 'Pushed to Master' AND bug_severity = 'enhancement' ORDER BY bug_whe
     my $enhancement = $sth->fetchall_arrayref;
     my $dates       = get_dates();
     my $devs        = get_devs();
-#    my $ohloh       = redis->get('ohloh');
 
-#    if ( !$ohloh ) {
-# my        $ohloh = ohloh_activity();
-#        redis->set( 'ohloh' => $ohloh );
-#        redis->expire( 'ohloh', 6000 );
-#    }
-    template 'show_entries.tt',
-      {
+    #    my $ohloh       = redis->get('ohloh');
+
+    #    if ( !$ohloh ) {
+    # my        $ohloh = ohloh_activity();
+    #        redis->set( 'ohloh' => $ohloh );
+    #        redis->expire( 'ohloh', 6000 );
+    #    }
+    template 'show_entries.tt', {
         'entries'     => $entries,
         'stats'       => $stats,
         'yesterday'   => $yesterday,
@@ -77,8 +83,9 @@ AND added = 'Pushed to Master' AND bug_severity = 'enhancement' ORDER BY bug_whe
         'enhancments' => $enhancement,
         'dates'       => $dates,
         'devs'        => $devs,
-#        'ohloh'       => $ohloh,
-      };
+        'qa'          => $qa,
+        #        'ohloh'       => $ohloh,
+    };
 };
 
 get '/bug_status' => sub {

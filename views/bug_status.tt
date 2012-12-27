@@ -1,5 +1,5 @@
 <ul>
-<li>Needs Signoff - <% status.${"Needs Signoff"}.count %></li>
+<li><a href="http://bugs.koha-community.org/bugzilla3/buglist.cgi?cmdtype=runnamed&namedcmd=Needs%20Signoff"> Needs Signoff</a> - <% status.${"Needs Signoff"}.count %></li>
 <li>Signed Off - <% status.${"Signed Off"}.count %></li>
 <li>Passed QA - <% status.${"Passed QA"}.count %></li>
 <li>Failed QA - <% status.${"Failed QA"}.count %></li>
