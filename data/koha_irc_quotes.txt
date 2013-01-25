@@ -1,0 +1,227 @@
+000232
+000001:1243739142.5887311,1,"'<pianohacker> resolve, rather, I doubt it needs lotion'"
+000002:1244045041.212275,1,'<jwagner> Hope springs eternal in little kitty hearts. Better watch the doors :-)'
+000003:1244771755.4169359,3,"""< bignose-work> the only constant in climate over the next several decades will be that the climate doesn't match what you just got used to."""
+000004:1244811046.8512731,3,'< kf> I often get asked: You have to study to be a librarian? perhaps MARC was invented to answer it ;)'
+000005:1244812425.341783,4,"'<jwagner> Why is it every Koha rock I turn over produces a zillion (metaphorical) ants, each with anew question????'"
+000006:1245168807.4022641,5,'gmcharlt: kf: hold requests are a plot to sell more aspirin ;)'
+000007:1245338910.615695,5,'Snow_Fox: a rift opens in space the information is shuffled to dev_hyperspace rift then closes'
+000008:1245434271.5870399,2,'< wizzyrea> in my experience the transition to koha is much harder for libraries that are already automated'
+000009:1245443036.3853531,5,"""pianohacker ponders drumstick->ear as a method of food acquisition...We haven't gone to this goodmexican restaurant in a while..."""
+000010:1245787182.0157039,3,'< pianohacker> You helped start an open source project; clearly your sense of what to avoid to makeyour life easier has been impaired for a while :)'
+000012:1246905408.2429349,1,'<owen> Every time you check in a book a little video loads and Nancy Pearl recites her capsule review of it.'
+000013:1247171500.4512789,1,"'<atz> ricardo: ask and ye shall receive.... eventually, ye shall stop asking.'"
+000014:1247171519.192924,5,'joetho: I only looked for missing ccodes- not dysfunctional orphans.'
+000015:1247237917.7690489,5,'<|Lupin|>ricardo: you are like the Portuguese Hitchcock!!'
+000016:1247866662.157702,3,"'< wizzyrea> i mean, the point of american bacon is to erm, use the belly of the hog (I think)'"
+000017:1247866808.9806559,7,'<wizzyrea> holy flaming bacon batman!'
+000018:1248456917.1189089,1,'<pianohacker> nitpicking synergy FTW'
+000019:1248696684.049052,7,"""<chris> i just want to yell things like don't kick the ball, pass it and Feed the backs"""
+000020:1249055417.8064189,7,'<wizzyrea> you will see no wedgie-ing from me'
+000021:1249575538.6174779,7,'<owen> I think we need more quotes!'
+000022:1249575882.793786,1,"""<jdavidb> owen: you wouldn't know this, being the skinny thing you are, but it is also good for maintaining a panoramic physique, like mine."""
+------:1249575943.0930929,9,'<gmcharlt> /msg munin register nick password'
+000024:1249654030.5147691,1,'<kmkale> interesting word munin. in many indian languages we have a word munim who used to be a sort of accountant for all businessmen'
+000025:1250278837.652595,1,"""<wizzyrea> ha, in #koha we don't pick each other's brains... we git pull them."""
+000026:1250976062.08798,7,'<chris> as an aside C4::Search makes my brain hurt'
+000027:1250976078.172004,1,"'<jdavidb> (""A helicopter does not fly; it is a collection of quasi-unrelated parts moving in closeformation, beating the sky into submission."")'"
+000028:1251810846.5347669,7,"""<owen> I'm glad munin doesn't follow me around all day remembering *everything* I say."""
+000029:1251927175.278748,3,'< CGI634> kill self now avoid slow cataloging death'
+000030:1251927253.5361221,3,'< pianohacker> Dealing with me can indeed be painful'
+000031:1251934304.755728,3,'<@gmcharlt> but hacking Koha *should* be a restful part of any vacation ;)'
+000032:1252504567.118983,7,"""<wizzyrea> oh, things are not right in the world .... oh good, that makes me feel better. it's just the govt"""
+000034:1253125404.300561,1,"'<chris> oh except that time .. when katipo decided to write an ils just for fun, then forced HLT to use it'"
+000035:1253213880.7059369,6,'<sekjal> it seemed like a good idea at the time....'
+000036:1253905955.2649231,7,"'<pianohacker> first, burn the perl book'"
+000037:1254698828.631259,3,"""< nelsonf> I'm pretty sure I deleted this one in the name of being thorough..."""
+000038:1254924039.9585271,13,"'<owen> Holy Bugzilla activity explosion, Batman!'"
+000039:1254938450.4680531,13,"'chris <chris> nope, ive made it my aim in life not to learn js or html'"
+000040:1255014334.497442,13,"""<tomascohen> hi everyone, just wanted to say I'm happy i managed to bypass the firewall to be with you *** tomascohen quit (Remote host closed the connection)"""
+000041:1255705994.44506,6,"""owen: Being an ass doesn't qualify as a medical condition ;)"""
+000043:1256891726.7670419,3,'< Ropuch> Uh - beware of tea: it can burn your throat'
+000044:1256933241.9347889,1,'<thd> People make bugs fairly much in the degree to which they contribute to the code'
+000045:1257447618.5391381,1,"""<CGI988> sekjal - you are a genious!!!!! asking me about the browser!!!! yes it's the #$%$#%$#ing IE was messing my cataloguing, oh I hate miscrosoft, the evil!"""
+000046:1258171690.5676279,10,"""<brendan> tip - don't pet a burning dog"""
+000047:1258409751.65538,14,"'pianohacker bah, go collision attack the front of a moving car'"
+000048:1260395572.067486,6,"'<sekjal> no, anything I said was my fault'"
+000049:1261498833.7254159,10,"""wizzyrea: KOHAKONG: Stomping all other ILS's"""
+000050:1261586641.6743729,10,"'<pianohackr|work> It is a landmine, I tell you'"
+000051:1264016156.214184,10,"'jwagner thinks true joy is not wanting to do a telecon, and finding out the other person has forgotten about it & left for the day :-)'"
+000052:1264711842.309303,1,"""<wizzyrea> Ahh, it's like putting on your slippers"""
+000053:1265408253.1451521,1,'joetho: what kind of shape are the records in?'
+000054:1265745909.6895261,6,"'<@gmcharlt> from my POV, bug wrangling expands to fill all available volunteers'"
+000055:1265891888.510947,1,'<jdavidb> Harrrrumph!'
+000056:1265895264.3109391,1,'* jdavidb makes sure no kitty carcasses are among the dead bugs.'
+000058:1266424736.178411,1,"'<jdavidb> I prefer killing bugs, not kitties.'"
+000060:1266600686.63221,1,"""<owen> My 9-month-old may not be walking yet, but she's got great bib control."""
+000061:1267031963.194361,7,"""*wizzyrea doesn't like hoity toity technical talk...<wizzyrea> wait, that's a lie"""
+000062:1267190317.506881,1,'<fallor> is this a known thingy?'
+000063:1267451403.702868,7,'<jwagner> But no one expects the Spammish Inquisition!'
+000064:1267459132.579036,14,"""<jwagner> Depends on whether you're trying to get intelligent participation, or just saying we're going to do it MY way"""
+000065:1267549211.449208,1,"""<wizzyrea_> koha doesn't make you pizza... it only makes you pizza metadata"""
+000066:1267717170.1192851,6,"'<paul_p> shame on koha, mySQL & user !'"
+000068:1268252269.5689559,16,'gmcharlt: which probably means that library schools ought to rename Cataloging 101 to Identification and Avoidance of Rabbit Holes 101'
+000069:1268834534.6780231,6,'<schuster> Now if I could only figure out how to control those daemons... or at least the ones in my head...'
+000070:1270132250.5348279,7,'<wizzyrea> owen: I have a jquery... um... query for you'
+000071:1270756027.505513,3,'cait: hm it works now and I have no idea why :)'
+000072:1272544124.4033251,7,"""<nengard> it's evil xslt in the staff client"""
+000073:1272544705.9491651,8,'<chris_n> owen: try /msg munin identify nick password'
+000074:1274188265.33181,1,"""<owen> chris: Not to mention the cute kid quote AI you've been developing. that takes a lot of cycles"""
+000075:1274188439.9694481,1,"'<jwagner> They do get over it though. Starting along about my 20s, the older I got the smarter my parents got :-)'"
+000076:1275493823.502368,18,"""<owen> yes, it's all part of my plan to take over the world."""
+000077:1277139774.4559269,7,'*chris_n wants to know if nengard figures out how to do 1 million things at once... and if she will release the source code or not'
+------:1277344357.154341,1,"'<robin> drivers make windows crash, therefor windows makes drivers crash.'"
+000079:1277344400.596694,1,"'<robin> drivers make windows crash, therefore windows makes drivers crash.'"
+000080:1277344444.316802,1,"'<robin> heh thanks, that makes me seem a lot more edumacated :)'"
+000081:1277732859.7550819,19,"'<owen> Free beer *and* free puppy, but be careful: the puppy is drunk.'"
+000082:1277912886.225714,1,"'<pianohack> nengard: If you were using a _dvorak_ keyboard, you would be making different, more interesting typos'"
+000083:1279045769.2859199,19,'<wizzyrea> you can watch the sunrise around the world in #koha'
+000084:1279056921.39217,1,'<slef> combined customs+petting zoo?'
+000085:1279110233.5800841,4,'owen: Nothing says embracing my geekness like participating in an IRC meeting about software licenses!'
+000086:1279568658.4654379,18,"""<jcamins> Oops. Don't click mandatory on subfields for tags you've never heard of."""
+000087:1280431618.410439,18,"""<wizzyrea> my standard reply for that is you know that women are genetically predisposed to wake to a baby's cry... where men are more likely to wake up to the sound of a fly buzzing"""
+000088:1281123760.9278979,6,"""<owen> I'm a crazed branch-creating maniac"""
+000089:1282235535.339947,6,"""<owen> We defy stereotypes: We're not afraid of commitment!"""
+------:1282250488.6981051,5,"'<member:chris> Free as in kittens is a silly phrase that should die, if FOSS is free as in kittens, proprietary software is free as in an inbred purebreed cat. That costs thousands of dollars in vet bills every year and is slightly retarded.'"
+000091:1282250554.6100919,5,"'<chris> Free as in kittens is a silly phrase that should die, if FOSS is free as in kittens, proprietary software is free as in an inbred purebreed cat. That costs thousands of dollars in vet bills every year and is slightly retarded.'"
+000092:1282916587.7697871,6,'<schuster> Why even learn when there is a genius in the room...'
+000093:1284060031.059526,5,"'Koha is not an acronym, so it should not be in all-capitals. Koha is a Maori word.'"
+000094:1284367514.883251,4,"'<chris> the more i explain, the more ppl know, and the less i have to do in the future ... its purely selfish hehe'"
+000095:1286400979.46559,3,"""< robin> to be honest, I think if you mention Koha and Perl, your CV could say your hobbies include puppy-kitten cage-fights, and you'd be snapped up :)"""
+000096:1286517387.831578,20,"""< owen> If your vendor calls it KOHA you know it's not really Koha."""
+000097:1286551288.5261829,5,'chris_n shakes his fist (again) in the direction of Redmond'
+000098:1286565331.7256091,5,"""drulm: TGIF=Thank Galen It's Friday"""
+000099:1286824221.1295919,5,'slef: #kohaaaaargh for PTFS blog posts?'
+000100:1286826118.5765879,5,"""chris: well, one of them is overhauling the whole templating system jcamins: Koha's other swiss army chainsaw"""
+000101:1288320250.9939859,1,'<darling> I still need to catch up with current Koha. Is pretty dreamy already.'
+000102:1289504565.3825569,1,'<druthb> harrrumph!'
+000103:1289683114.029264,5,'<cait>: Nobody can find you hiding in Search.pm ;)'
+000104:1289956061.535722,19,'<Brooke> not people quoting me *again*'
+000105:1290615071.1624761,1,'* wizzyrea would like to note that you do *not* have to add good morning to all of your patches.'
+000106:1291037517.162117,19,"'<jwagner> Bah, humbug'"
+000107:1291042146.6598899,6,'<kmkale> This is a food channel. Sometimes we discuss Koha too ;)'
+000108:1291130411.8386149,19,"""<owen> As Pee-wee said, Everyone I know has a big 'but'"""
+000109:1291242551.0888629,5,'<darling>yep \xe2\x80\x94 china kicks ass'
+000110:1291803611.2084861,4,"'chris: im rm, not god'"
+000111:1292416109.6320541,19,'<thd> kf: Many things can be funded with many people and small amounts.'
+000112:1292447824.9569521,5,'gmcharlt: only superlibrarians can be trusted with capes'
+000113:1292941103.0897419,19,"'<jcamins> I merely opened my hands and allowed a butterfly to flutter its wings once, thus ensuring that the record I was interested in would automatically show up on the terminal when I was walking by.'"
+000114:1295369346.137006,5,"'chris_n: maybe you mean black magic with reference to zebra? ;-) ; wizzyrea: correction: black magic of zebra :D ; sekjal: correction: black and white striped magic of zebra .... ; rhcl: zebra sounds like a skunk ; chris_n thinks is may smell occasionally too, like a pole cat.'"
+000115:1295458588.6706221,18,"""chris: friends don't let friends use proprietary software."""
+000116:1295629823.6265891,5,"""slef: It's probably some corrupt mix of double-encoding or ISO-8859-1 mislabelled as MARC-8 and the problem is rather similar to trying to reconstruct a pig from sausages, sorry."""
+000117:1295875040.2560451,6,"""<druthb> basking ? You bask on the beach...one does not bask in the Potomac River basin...you melt or swelter or something, but you don't bask. :P"""
+000118:1295991591.9891369,19,'wizzyrea: lavamind is erupting patches all over us!'
+000119:1296123763.3331039,20,"'<wasabi> wow, and a pig!!! -> http://www.blainefranger.com/blog/uploaded_images/IMG_6368_nepali_food.jpg'"
+000120:1296151046.0715671,1,"'<sekjal> I think time is less like a continuum, and more like a series of git commits'"
+000121:1300997910.9507999,3,"""mtj> friends don't let librarians spec bib formats"""
+000122:1301497310.2903891,5,"""<member:oleonard>Everyone is doin' the hot new dance the Cracked Out Kitty Tail Shiver"""
+000123:1301520052.6349039,5,'rangi: #thingsihavelearnt if there is a mad scheme a library somewhere will be doing it ... except madder'
+000124:1301942036.8144879,5,"'gmcharlt: well, obviously the Ode To Joy is the only possible sound cue for the hold-filled event'"
+000125:1302095676.484673,1,'<oleonard> gmcharlt: Or I could fill the tub with milk and cereal and lock them in the bathroom.'
+000126:1302811206.3805931,5,"'<rangi> The beauty of Koha is we develop in the open, nothing is hidden so you can see what is going on at any time. [...] Koha grows through its strong and vibrant community, and the best users are the ones who invest the time in asking questions.'"
+000127:1303153813.910641,5,'Oracle now has little choice but to abandon its commercial ambitions for OOo because the growing momentum of the more inclusive LibreOffice fork is making OOo irrelevant'
+000128:1303153861.919734,5,"""When TDF was founded, the group's leadership invited Oracle to participate in the hope that the database giant would be willing to hand over the OOo trademark and allow the vendor-neutral governance body to take over stewardship of the project"""
+000129:1303930889.6105411,5,"""jcamins: take to heart the old saying- 'don't be a git, use git."""
+000130:1303930945.8351901,5,"'rangi: or you could save time and just slam your head on the desk multiple times now, cos without tracking ur changes, ull be doing that after trying to upgrade'"
+000131:1304525361.4191351,23,"'oleonard Yeah, huginn. Perv.'"
+000132:1305900474.955385,19,'<oleonard> nengard: It depends what time zone Jesus uses I think'
+------:1305900499.9349129,5,'<oleonard> nengard: It depends what time zone Jesus uses I think'
+000134:1305917395.491261,1,'<cait> birthday wishes go over crazy bugs :)'
+000135:1305919841.0870891,21,"""rangi: $tempate->{VARS}->{'LoginBranchname'} - without the typo"""
+000136:1306433895.663455,5,'<sekjal> MARC. Must. Die!'
+000137:1306435220.7340519,21,"""sekjal: the data's in there... it's just MARC"""
+000138:1306495414.3466909,23,"'gmcharlt will nobody think of the lurkers? talk, talk already! ;)'"
+000139:1306864503.5583589,5,'library_systems_guy: I guess I could put (git-bz) in /usr/games because Koha + git = fun times'
+000140:1307104793.2418809,1,"""<oleonard> That's why I'm the only one with a flying car. I just didn't figure anyone else would be interested."""
+000141:1307117893.8297589,5,"""library_systems_guy: w00t I'm officially part of something cool :)"""
+000142:1307566471.242717,5,"""Pianohacker: hrm. What's the plural of ILS again? Rangi: ILSESESESESESES"""
+000143:1309297913.750607,5,'rhcl: Blame the C coders; if it was written in Ada it would have exception handling.'
+000144:1309466939.4901121,5,'library_systems_guy: (xslt) looks like html and lisp had an ugly baby.'
+000145:1310049433.4508209,5,"""Don't ask to ask, just ask!"""
+000146:1311883401.9361141,5,"""rangi: when I was at brendans house we went to the farmers market and bought lots of almonds which I had to eat on the plane, cos can't bringthem into nz, so I was offering ppl nuts on the plane. cait: makes sense rangi: if its sensible for a crazy nzer to be waving almonds in ur face at 3am, then yes"""
+000147:1314221581.9644811,5,'<wizzyrea> a watched query never finishes.'
+000148:1314292273.981365,5,"""<oleonard> sekjal wants EVERYTHING in a matrix! <sekjal> I'm like the Anti-Neo"""
+000149:1314321301.5267551,19,'mtj: DEVELOPERS!!! DEVELOPERS!!! DEVELOPERS!!!'
+000150:1314716874.9707229,5,'<libsysguy> jcamins is the wizard that forges queries in the deep fires of zebra'
+000151:1314819660.842802,5,'<seneca> you guys are my heroes'
+000152:1315923596.6044331,5,'gmcharlt: Koha: unifying the world one library at a time'
+000153:1315943372.9432311,1,"""<rangi> merging code in git doesn't make me angry, I just think back to svn and cvs, and git could punch me in the face and it would still be better"""
+000154:1316062382.8715739,5,"""rangi: it's destined to be an eternal mystery"""
+000155:1316093708.86378,4,"""libsysguy: I always hate touching somebody else's code that they are currently working on...its like asking someone if you can hold their kid"""
+000156:1316700554.0310161,5,"""druthb: I would feed wahanui a botsnack of windows 8 engineers, but they're full of fluff and not very filling. trea: like marshmallow peeps, with clip on ties."""
+000157:1316795939.5191541,5,"""wizzyrea: bbiaf -> I know that means be back in a few but my brain told me that meant be back in a fire oleonard: similar to the common ctaof, for Can't talk, am on fire"""
+------:1316796300.7551441,5,'http://images.memegenerator.net/instances/280x280/9804273.jpg'
+000159:1316797207.948611,5,'slef: WELCOME TO HOOGERLAND. POPULATION: HEROES'
+000160:1317227014.249239,5,"""oleonard: All of humanity's evolution and technological achievement have led to this day, when someone could say simply, 1s, vid and make it so."""
+000161:1318947539.492115,4,'* wizzyrea prefers pricks'
+000162:1319817818.744091,5,'oleonard: I think DRM is inherently incompatible with any lending system which will be friendly to patrons.'
+000163:1320955512.185009,5,"""<oleonard> One nice thing about the real Koha is you don't have to call someone to get it."""
+000164:1321304905.1089289,5,'<sekjal> word of advice to folks: take an aspirin before reading C4/Overdues.pm'
+000023:1249575943.0930929,9,'<gmcharlt> /msg huginn register nick password'
+000165:1321456066.9484401,4,"'Chris Cormack: Bug 6679 : Not using strict .. bad script, no cookie for you!'"
+000166:1321542392.0876651,5,"""jcamins: this is IRC. There's a several decade long tradition of lurking."""
+000167:1321646303.5245731,18,"'<sekjal> yes, major project. very important'"
+000168:1322773306.5788219,18,'gmcharlt: #koha is ALL the time'
+000169:1323199350.670645,18,"""<wizzyrea> sometimes the answer is just the answer... even if you don't like it ;)"""
+000170:1323286015.80726,18,"""<jcamins> A lot of people seem to have no idea what they're running."""
+000171:1323375036.0805719,5,"'rangi: I find proprietary software unethical. So even if it made me coffee and polished my shoes everyday, it would still suck'"
+------:1323450454.1741011,5,"""member:rangi: there is so much stuff in Koha that is a result of 'omg my staff wont do what they are told to' member:rangi: please punish the whole world for me"""
+000173:1323450642.29409,5,"""rangi: there is so much stuff in Koha that is a result of 'omg my staff wont do what they are told to. Please punish the whole world for me.'"""
+000174:1325672161.5244901,23,'paul_p I answer to SLEF'
+000175:1325691845.630583,5,'*oleonard is waiting for a good scientist -> hulk patron category transition script'
+000176:1325872951.3986549,27,"'rangi: buy people a glass of  zomg there\'s actually real things to care about"" juice?""'"
+000177:1326213821.7352469,5,"""oleonard: If Buck Rogers used IRC he'd put bip on Twiki and tell Twiki to never sleep."""
+000178:1326216013.832495,5,'jcamins: IIS kills kittens'
+000179:1326229408.8791969,5,"'oleonard: Linux people are the ones who spend the longest pulling on the door that says push ;) \x02""But pushing is /better/!""\x0f'"
+000180:1326380915.0343029,1,"'<magnuse> gmcharlt brought the bugs back, oh well...'"
+000181:1326477129.6717529,5,'*oleonard imagines perlcritic level Ebert and perlcritic level Siskel *jcamins imagines perlcritic levels Statler and Waldorf.'
+000182:1327520128.8091481,5,'rangi: chiclet makes me think all you could type on it is bridget jones diary novels'
+000183:1327520173.297662,5,"'oleonard: bridget jones + vampires, the only remaining mashup left.'"
+000184:1327949938.9708431,5,"'slef: IF YOU STARE TOO DEEPLY INTO MARC21, MARC21 STARES BACK INTO YOU!'"
+000185:1327949961.5836811,28,'<wizzyrea> @quote get 23'
+000186:1328200193.073457,5,'trea: git-fu --tiger style /whooosh'
+000187:1329769769.387331,1,'<slef> did wahanui just burst into flames?'
+000188:1330111361.1433849,29,"'oleonard: 64-bit IE9, for when you want to surf the web in a *powerfully* bad browser.'"
+000189:1330443058.139672,5,'libsysguy: one need not ask why where there are librarians involved :P'
+000190:1330443962.44191,28,'<jcamins> Hehe. Guillotine: the revolutionary card game you win by getting a head <asaurat> lol <asaurat> I mean mdr'
+000191:1330468293.113765,5,"""Eythian: git is easy in essence, but it takes a lot of messing around and being confused before you really get what's going on :)"""
+000192:1331308962.0258391,5,'sekjal: running on master is a great way to catch bugs... but then you have bugs.'
+000193:1332428201.5151711,28,"""<libsysguy> I don't always reterminate....but when I do the terminator is near a stud // * wizzyrea considers if this is a real statement or something to do with the movie."""
+000194:1333047318.483505,5,"'oleonard: Everyone will be all, Wow, that guys smells like he really wishes he could have sex!'"
+000195:1333131136.9054251,5,"""jcamins: libsysguy's test plans all involve sandwich-eating. I think he only programs when hungry."""
+000196:1333384887.1810329,5,"""oleonard: maybe if I didn't have all this Bugzilla stuff stored in my head I would be able to walk and chew gum at the same time."""
+000197:1333642230.2373719,28,'<chris_n> half-baked things are asking for trouble'
+000198:1333734596.605087,28,'<gmcharlt> hobgoblins are stealing our eyes!'
+000199:1333981464.369669,5,"""chris_n: considering marc is scary to us, I can't imagine what it does to patrons."""
+000200:1334244296.482296,5,'chris_n: usually the problem is either too much time and not enough cookies or not enough time and too many cookies'
+000201:1334253632.4038529,18,'<wizzyrea> never underestimate the power of an impatient librarian'
+000202:1335537251.5605731,28,'<wizzyrea> well and before that I used the garden of razorblades that is OpenBSD.'
+000203:1336492106.0607829,5,"""francharb: oh god\xe2\x80\xa6 it's complicated"""
+000204:1336757825.2435219,18,'jcamins: It makes me feel like MARC has failed me.'
+------:1337903682.1845191,30,'Theres a bug for that'
+000206:1337903731.1653271,30,"""There's a bug for that"""
+000207:1338249656.4873641,30,"""< eythian> It's OK, we can implement the RDA support in Perl 6."""
+000208:1340895678.3961079,27,'<mtompset> Tonight... I tango with git.'
+000209:1342110402.4007821,5,"""New Koha tagline: More magic than you're used to!"""
+000210:1342528506.0844319,27,"""< oleonard> You could carpet a floor in FIXME's from C4/Search"""
+000211:1342528526.633965,28,"""<paul_p> mtate a bug in C4/Search ? That's unbelievable !"""
+000212:1343682437.7928081,1,"'<eythian> College is a fountain of knowledge, and the students go there to drink, eh? :)'"
+000213:1344363528.241601,5,"""jwagner: There are few problems that can't be solved with patience, ingenuity, and a large kick in the pants (assuming servers wear pants, that is)."""
+000214:1344390771.2499421,32,"""obelos: Perhaps this means it's time for HLT to choose a different name so we can all move on with our work without this distraction."""
+000215:1345642935.5719869,1,'mtompset> So would a Fire Weasel be a dev_hyperspace rift opening and spewing vast amounts of unformatted data at you?'
+000216:1346943429.446516,5,"""<jcamins> I'm cataloging something by Horace Walpole, and I feel an *overwhelming* urge to A) havesome cheese, and B) tell people that I am engaged in Walpoling activities."""
+000217:1348673362.7199459,33,"'<slef> maybe I should chew their legs off, then use the sharp bony end to kill kittens...?'"
+000218:1349598332.426121,33,'rangi: ... graciousness never ever hurts.'
+000219:1349881383.8847611,5,"""You can't hit a perl module in the face. You can only hit it in its package!"""
+000220:1350672067.7394841,5,"'jcamins: Facebook may not like unspecified relationships, but rare books catalogers do!'"
+000221:1351027680.2281229,30,"'I used to be sane like you, until I took a MARC data to the knee'"
+000222:1354909769.3487861,19,"""jcamins: test patches, don't feed trolls."""
+000223:1355321190.4027729,19,'kf: ... which has opportunities for great power and wizardry as well as grande disaster.'
+000224:1355764404.0977991,19,"'jcamins: QueryParser! The all-singing, all-dancing, all-parsing, and all-finding new query parser for the search rewrite!'"
+000225:1355953444.8223741,5,"""eythian: The koha community is a major force in preventing the extinction of zebras with the amount we're rebuilding."""
+000226:1356645430.7161479,1,'<wizzyrea> like someone would do quote add someone: something funny'
+000227:1356655202.5852439,19,"'wizzyrea: lol, you should have searched for paroxysms'"
+000228:1356903096.5376799,5,"'<rangi>: poke at them randomly. Best cooking instruction yet. <liw>: rangi, how strict are the randomness criteria? is a brain-generated mock-random movement pattern sufficient? <eythian>: you need to run it through a crypto hashbrown first.'"
+000229:1357160354.7816939,5,"'rangi: relax, I signed it off :)'"
+000230:1357321763.8765581,1,"""<jcamins> I often find that the connectivity problem either A) goes away, or B) I have such a sugar high that I don't notice the connection time out after having cookies."""
+000231:1357655695.2780361,19,"""oleonard: You're not a real hardcore cataloger unless you catalog with hide_marc *and* advancedMARCeditor enabled: http://screencast.com/t/7qo1Wiokhe"""
