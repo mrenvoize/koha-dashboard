@@ -13,7 +13,7 @@ use strict;
 use warnings;
 use DBI;
 use Template;
-
+use Text::CSV;
 my $username;
 my $password;
 
@@ -33,16 +33,20 @@ get '/' => sub {
     $sth->execute or die $sth->errstr;
     my $entries = $sth->fetchall_arrayref;
     $sql =
-"SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added='Signed Off' and bug_when >= '2012-12-01' AND bug_when < '2013-01-01' GROUP BY realname,added ORDER BY count(*) desc;";
+"SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added='Signed Off' and bug_when >= '2013-01-01' AND bug_when < '2013-02-01' GROUP BY realname,added ORDER BY count(*) desc;";
     $sth = database->prepare($sql) or die database->errstr;
     $sth->execute or die $sth->errstr;
     my $stats = $sth->fetchall_arrayref;
     $sql =
-"SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added='Passed QA' and bug_when >= '2012-12-01' AND bug_when < '2013-01-01' GROUP BY realname,added ORDER BY count(*) desc;";
+"SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added='Passed QA' and bug_when >= '2013-01-01' AND bug_when < '2013-02-01' GROUP BY realname,added ORDER BY count(*) desc;";
     $sth = database->prepare($sql) or die database->errstr;
     $sth->execute or die $sth->errstr;
     my $qa = $sth->fetchall_arrayref;
-
+    $sql =
+"SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added='Failed QA' and bug_when >= '2013-01-01' AND bug_when < '2013-02-01' GROUP BY realname,added ORDER BY count(*) desc;";
+    $sth = database->prepare($sql) or die database->errstr;
+    $sth->execute or die $sth->errstr;
+    my $failedqa = $sth->fetchall_arrayref;
     $sql =
 "SELECT count(*) as count ,subdate(current_date, 1) as day FROM bugs_activity WHERE date(bug_when) = subdate(current_date, 1);";
     $sth = database->prepare($sql) or die database->errstr;
@@ -84,6 +88,7 @@ AND added = 'Pushed to Master' AND bug_severity = 'enhancement' ORDER BY bug_whe
         'dates'       => $dates,
         'devs'        => $devs,
         'qa'          => $qa,
+        'failed'      => $failedqa,
         #        'ohloh'       => $ohloh,
     };
 };
@@ -106,6 +111,15 @@ get '/randombug' => sub {
     $sth->execute or die $sth->errstr;
 
     template 'randombug.tt', { 'randombug' => $sth->fetchall_arrayref };
+};
+
+get '/randomquote' => sub {
+    open FILE, 'data/koha_irc_quotes.txt' || die "can't open file";
+    my @quotes    = <FILE>;
+    my $quote     = $quotes[ rand @quotes ];
+    my $csv       = Text::CSV->new( { binary => 1 } );
+    my $linequote = $csv->parse($quote);
+    template 'quote.tt', { 'quote' => $csv };
 };
 
 get '/needsignoff' => sub {
