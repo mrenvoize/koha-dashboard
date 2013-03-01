@@ -33,17 +33,17 @@ get '/' => sub {
     $sth->execute or die $sth->errstr;
     my $entries = $sth->fetchall_arrayref;
     $sql =
-"SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added='Signed Off' and bug_when >= '2013-01-01' AND bug_when < '2013-02-01' GROUP BY realname,added ORDER BY count(*) desc;";
+"SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added='Signed Off' and bug_when >= '2013-02-01' AND bug_when < '2013-03-01' GROUP BY realname,added ORDER BY count(*) desc;";
     $sth = database->prepare($sql) or die database->errstr;
     $sth->execute or die $sth->errstr;
     my $stats = $sth->fetchall_arrayref;
     $sql =
-"SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added='Passed QA' and bug_when >= '2013-01-01' AND bug_when < '2013-02-01' GROUP BY realname,added ORDER BY count(*) desc;";
+"SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added='Passed QA' and bug_when >= '2013-02-01' AND bug_when < '2013-03-01' GROUP BY realname,added ORDER BY count(*) desc;";
     $sth = database->prepare($sql) or die database->errstr;
     $sth->execute or die $sth->errstr;
     my $qa = $sth->fetchall_arrayref;
     $sql =
-"SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added='Failed QA' and bug_when >= '2013-01-01' AND bug_when < '2013-02-01' GROUP BY realname,added ORDER BY count(*) desc;";
+"SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added='Failed QA' and bug_when >= '2013-02-01' AND bug_when < '2013-03-01' GROUP BY realname,added ORDER BY count(*) desc;";
     $sth = database->prepare($sql) or die database->errstr;
     $sth->execute or die $sth->errstr;
     my $failedqa = $sth->fetchall_arrayref;
@@ -121,6 +121,17 @@ get '/randomquote' => sub {
     my $linequote = $csv->parse($quote);
     template 'quote.tt', { 'quote' => $csv };
 };
+
+get '/rq' => sub {
+        open FILE, 'data/koha_irc_quotes.txt' || die "can't open file";
+            my @quotes    = <FILE>;
+                my $quote     = $quotes[ rand @quotes ];
+                    my $csv       = Text::CSV->new( { binary => 1 } );
+                        my $linequote = $csv->parse($quote);
+                            template 'quotetext.tt', { 'quote' => $csv };
+};
+
+
 
 get '/needsignoff' => sub {
     my $sql = "SELECT bugs.bug_id,short_desc FROM bugs

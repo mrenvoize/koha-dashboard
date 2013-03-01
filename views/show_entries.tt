@@ -155,7 +155,7 @@ $(document).ready(function(){
 
 <div class="row-fluid">
 <div class="span4">
-<h3>Signoffs - January</h3>
+<h3>Signoffs - February</h3>
 <ul>
 <% FOREACH stat IN stats %>
 <li><% stat.0 %> - <% stat.1 %></li>
@@ -163,7 +163,7 @@ $(document).ready(function(){
 </div>
 
 <div class="span4">
-<h3>Passed QA - January</h3>
+<h3>Passed QA - February</h3>
 <ul>
 <% FOREACH stat IN qa %>
 <li><% stat.0 %> - <% stat.1 %></li>
@@ -171,7 +171,7 @@ $(document).ready(function(){
 </div>
 
 <div class="span4">
-<h3>Failed QA - January</h3>
+<h3>Failed QA - February</h3>
 <ul>
 <% FOREACH stat IN failed %>
 <li><% stat.0 %> - <% stat.1 %></li>
