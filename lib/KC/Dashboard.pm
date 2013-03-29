@@ -64,7 +64,7 @@ get '/' => sub {
     my $daybefore = $sth->fetchrow_hashref();
     $sql =
 "SELECT bugs.bug_id,short_desc,bug_when FROM bugs,bugs_activity WHERE bugs.bug_id = bugs_activity.bug_id
-AND added = 'Pushed to Master' AND bug_severity = 'enhancement' ORDER BY bug_when desc LIMIT 5";
+AND added = 'Pushed to Master' AND (bug_severity = 'enhancement' OR bug_severity ='new feature') ORDER BY bug_when desc LIMIT 5";
     $sth = database->prepare($sql) or die database->errstr;
     $sth->execute or die $sth->errstr;
     my $enhancement = $sth->fetchall_arrayref;
@@ -98,9 +98,15 @@ get '/bug_status' => sub {
       "SELECT count(*) as count,bug_status FROM bugs GROUP BY bug_status";
     my $sth = database->prepare($sql) or die database->errstr;
     $sth->execute or die $sth->errstr;
-
+    $sql = "SELECT count(*) as bugsneeding FROM bugs WHERE bug_status = 'Needs Signoff' 
+    AND bug_severity <> 'enhancement' and bug_severity <> 'new feature'";
+    my $sth2 = database->prepare($sql) or die database->errstr;
+    $sth2->execute;
+    my $count = $sth2->fetchrow_hashref();
     template 'bug_status.tt',
-      { 'status' => $sth->fetchall_hashref('bug_status') };
+      { 'status' => $sth->fetchall_hashref('bug_status'),
+        'bugssign' => $count
+      };
 };
 
 get '/randombug' => sub {
@@ -123,19 +129,20 @@ get '/randomquote' => sub {
 };
 
 get '/rq' => sub {
-        open FILE, 'data/koha_irc_quotes.txt' || die "can't open file";
-            my @quotes    = <FILE>;
-                my $quote     = $quotes[ rand @quotes ];
-                    my $csv       = Text::CSV->new( { binary => 1 } );
-                        my $linequote = $csv->parse($quote);
-                            template 'quotetext.tt', { 'quote' => $csv };
+    open FILE, 'data/koha_irc_quotes.txt' || die "can't open file";
+    my @quotes    = <FILE>;
+    my $quote     = $quotes[ rand @quotes ];
+    my $csv       = Text::CSV->new( { binary => 1 } );
+    my $linequote = $csv->parse($quote);
+    template 'quotetext.tt', { 'quote' => $csv };
 };
 
 
 
 get '/needsignoff' => sub {
     my $sql = "SELECT bugs.bug_id,short_desc FROM bugs
-               WHERE bug_status ='Needs Signoff' and bug_severity <> 'enhancement' ORDER by lastdiffed limit 10;";
+               WHERE bug_status ='Needs Signoff' and bug_severity <> 'enhancement' and 
+               bug_severity <> 'new feature' ORDER by lastdiffed limit 10;";
     my $sth = database->prepare($sql) or die database->errstr;
     $sth->execute or die $sth->errstr;
     template 'needsignoff.tt', { 'needsignoff' => $sth->fetchall_arrayref };

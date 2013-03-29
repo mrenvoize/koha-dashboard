@@ -1,5 +1,5 @@
 <ul>
-<li><a href="http://bugs.koha-community.org/bugzilla3/buglist.cgi?cmdtype=dorem&remaction=run&namedcmd=Needs%20Signoff&sharer_id=1"> Needs Signoff</a> -  <span class="badge badge-important"><% status.${"Needs Signoff"}.count %></span></li>
+<li><a href="http://bugs.koha-community.org/bugzilla3/buglist.cgi?cmdtype=dorem&remaction=run&namedcmd=Needs%20Signoff&sharer_id=1"> Needs Signoff</a> -  <span class="badge badge-important"><% status.${"Needs Signoff"}.count %></span>  <span class="badge badge-important"><% bugssign.bugsneeding %> bugs</span></li>
 <li>Signed Off - <span class="badge badge-warning"><% status.${"Signed Off"}.count %></span></li>
 <li>Passed QA -  <span class="badge badge-success"><% status.${"Passed QA"}.count %></span></li>
 <li>Failed QA - <span class="badge badge-warning"><% status.${"Failed QA"}.count %></span></li>
