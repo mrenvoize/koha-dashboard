@@ -98,14 +98,13 @@ get '/bug_status' => sub {
       "SELECT count(*) as count,bug_status FROM bugs GROUP BY bug_status";
     my $sth = database->prepare($sql) or die database->errstr;
     $sth->execute or die $sth->errstr;
-    $sql = "SELECT count(*) as bugsneeding FROM bugs WHERE bug_status = 'Needs Signoff' 
-    AND bug_severity <> 'enhancement' and bug_severity <> 'new feature'";
+    $sql = "SELECT count(*) as count,bug_status FROM bugs WHERE bug_severity <> 'enhancement'
+    AND bug_severity <> 'new feature' GROUP BY bug_status";
     my $sth2 = database->prepare($sql) or die database->errstr;
     $sth2->execute;
-    my $count = $sth2->fetchrow_hashref();
     template 'bug_status.tt',
       { 'status' => $sth->fetchall_hashref('bug_status'),
-        'bugssign' => $count
+        'bugssign' => $sth2->fetchall_hashref('bug_status')
       };
 };
 
