@@ -1,7 +1,7 @@
 <ul>
 <li><a href="http://bugs.koha-community.org/bugzilla3/buglist.cgi?cmdtype=dorem&remaction=run&namedcmd=Needs%20Signoff&sharer_id=1"> Needs Signoff</a> -  <span class="badge badge-important"><% status.${"Needs Signoff"}.count %></span>  <span class="badge badge-important"><% bugssign.${"Needs Signoff"}.count %> bugs</span></li>
-<li>Signed Off - <span class="badge badge-warning"><% status.${"Signed Off"}.count %></span>  <span class="badge badge-warning"><% bugssign.${"Signed Off"}.count %> bugs </span></li>
-<li>Passed QA -  <span class="badge badge-success"><% status.${"Passed QA"}.count %></span> <span class="badge badge-success"><% bugssign.${"Passed QA"}.count %> bugs </span></li>
-<li>Failed QA - <span class="badge badge-warning"><% status.${"Failed QA"}.count %></span></li>
-<li>Patch Doesn't apply - <span class="badge badge-warning"><% status.${"Patch doesn't apply"}.count %></span></li>
+<li><a href="http://bugs.koha-community.org/bugzilla3/buglist.cgi?cmdtype=runnamed&namedcmd=Signed%20Off&list_id=59461">Signed Off</a> - <span class="badge badge-warning"><% status.${"Signed Off"}.count %></span>  <span class="badge badge-warning"><% bugssign.${"Signed Off"}.count %> bugs </span></li>
+<li><a href="http://bugs.koha-community.org/bugzilla3/buglist.cgi?cmdtype=runnamed&namedcmd=Passed%20QA&list_id=59462">Passed QA</a> -  <span class="badge badge-success"><% status.${"Passed QA"}.count %></span> <span class="badge badge-success"><% bugssign.${"Passed QA"}.count %> bugs </span></li>
+<li><a href="http://bugs.koha-community.org/bugzilla3/buglist.cgi?cmdtype=dorem&remaction=run&namedcmd=Failed%20QA&sharer_id=21&list_id=59459">Failed QA</a> - <span class="badge badge-warning"><% status.${"Failed QA"}.count %></span></li>
+<li><a href="http://bugs.koha-community.org/bugzilla3/buglist.cgi?cmdtype=runnamed&namedcmd=Does%20not%20apply&list_id=59460">Patch Doesn't apply</a> - <span class="badge badge-warning"><% status.${"Patch doesn't apply"}.count %></span></li>
 </ul>
