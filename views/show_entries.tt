@@ -103,7 +103,7 @@ $(document).ready(function(){
 </div>
 
 <div class="row-fluid">
-<div class="span4">
+<div class="span3">
 <h3>Last 5 sign offs</h3>
 <ul><% FOREACH entry IN entries %>
 <li><% entry.0 %> - 
@@ -112,13 +112,23 @@ $(document).ready(function(){
 </ul>
 </div>
 
-<div class="span4">
+<div class="span3">
 <h3>Needs Signoff</h3>
 <b>10 Oldest bugs </b>
 <div id="needsignoff"></div>
 </div>
 
-<div class="span4">
+<div class="span3">
+<h3>Needs QA</h3>
+<b>10 Oldest bugs </b>
+<ul>
+<% FOREACH entry IN old_nqa %>
+<li><a href="http://bugs.koha-community.org/bugzilla3/show_bug.cgi?id=<% entry.0 %>"><% entry.0 %></a> - <% entry.1 %></li>
+<% END %>
+</ul>
+</div>
+
+<div class="span3">
 <h3>New features recently pushed</h3>
 <ul>
 <% FOREACH enhancement IN enhancments %>
