@@ -71,6 +71,12 @@ AND added = 'Pushed to Master' AND (bug_severity = 'enhancement' OR bug_severity
     my $dates       = get_dates();
     my $devs        = get_devs();
 
+    $sql =
+"SELECT b.bug_id, short_desc, MAX(bug_when) as bug_when FROM bugs b, bugs_activity ba WHERE b.bug_id=ba.bug_id AND b.bug_status='Signed Off' AND ba.added='Signed Off' GROUP BY b.bug_id ORDER BY bug_when LIMIT 10";
+    $sth = database->prepare($sql) of die database->errstr;
+    $sth->execute or die $sth->errstr;
+    my $old_nqa = $sth->fetchall_arrayref;
+
     #    my $ohloh       = redis->get('ohloh');
 
     #    if ( !$ohloh ) {
@@ -89,6 +95,7 @@ AND added = 'Pushed to Master' AND (bug_severity = 'enhancement' OR bug_severity
         'devs'        => $devs,
         'qa'          => $qa,
         'failed'      => $failedqa,
+        'old_nqa'     => $old_nqa,
         #        'ohloh'       => $ohloh,
     };
 };
