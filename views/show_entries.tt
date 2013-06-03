@@ -140,7 +140,7 @@ $(document).ready(function(){
 </div>
 
 <div class="row-fluid">
-<div class="span4">
+<div class="span3">
 <h3> New Developers </h3>
 <ul>
 <% FOREACH dev IN devs %>
@@ -149,7 +149,7 @@ $(document).ready(function(){
 </ul>
 </div>
 
-<div class="span4">
+<div class="span3">
 <h3>Bug activity </h3>
 <% daybefore.day %> - 
 <% daybefore.count %> changes <br/>
@@ -159,41 +159,12 @@ $(document).ready(function(){
 <% today.count %> changes
 </div>
 
-<div class="span4">
+<div class="span3">
 <h3>Bug statuses</h3>
 <div id="bugs"></div>
 </div>
 
-</div>
-
-<div class="row-fluid">
-<div class="span4">
-<h3>Signoffs - May</h3>
-<ul>
-<% FOREACH stat IN stats %>
-<li><% stat.0 %> - <% stat.1 %></li>
-<% END %></ul>
-</div>
-
-<div class="span4">
-<h3>Passed QA - May</h3>
-<ul>
-<% FOREACH stat IN qa %>
-<li><% stat.0 %> - <% stat.1 %></li>
-<% END %></ul>
-</div>
-
-<div class="span4">
-<h3>Failed QA - May</h3>
-<ul>
-<% FOREACH stat IN failed %>
-<li><% stat.0 %> - <% stat.1 %></li>
-<% END %></ul>
-</div>
-</div>
-
-<div class="row-fluid">
-<div class="span4">
+<div class="span3">
 <h3>Build statuses</h3>
 Master - <a
 href='http://jenkins.koha-community.org/job/Koha_master/'><img
@@ -227,6 +198,37 @@ src='http://jenkins.koha-community.org/job/Koha_Docs_3.10.x/badge/icon'></a>
 
 </div>
 
+
+
+</div>
+
+<div class="row-fluid">
+<div class="span4">
+<h3>Signoffs - May</h3>
+<ul>
+<% FOREACH stat IN stats %>
+<li><% stat.0 %> - <% stat.1 %></li>
+<% END %></ul>
+</div>
+
+<div class="span4">
+<h3>Passed QA - May</h3>
+<ul>
+<% FOREACH stat IN qa %>
+<li><% stat.0 %> - <% stat.1 %></li>
+<% END %></ul>
+</div>
+
+<div class="span4">
+<h3>Failed QA - May</h3>
+<ul>
+<% FOREACH stat IN failed %>
+<li><% stat.0 %> - <% stat.1 %></li>
+<% END %></ul>
+</div>
+</div>
+
+<div class="row-fluid">
 <div class="span8">
 <h3>Cumulative totals for the last week</h3>
 <div id="chartdiv" style="height:400px;width:600px; "></div>
