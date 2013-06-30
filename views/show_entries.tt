@@ -204,7 +204,7 @@ src='http://jenkins.koha-community.org/job/Koha_Docs_3.10.x/badge/icon'></a>
 
 <div class="row-fluid">
 <div class="span4">
-<h3>Signoffs - May</h3>
+<h3>Signoffs - June</h3>
 <ul>
 <% FOREACH stat IN stats %>
 <li><% stat.0 %> - <% stat.1 %></li>
@@ -212,7 +212,7 @@ src='http://jenkins.koha-community.org/job/Koha_Docs_3.10.x/badge/icon'></a>
 </div>
 
 <div class="span4">
-<h3>Passed QA - May</h3>
+<h3>Passed QA - June</h3>
 <ul>
 <% FOREACH stat IN qa %>
 <li><% stat.0 %> - <% stat.1 %></li>
@@ -220,7 +220,7 @@ src='http://jenkins.koha-community.org/job/Koha_Docs_3.10.x/badge/icon'></a>
 </div>
 
 <div class="span4">
-<h3>Failed QA - May</h3>
+<h3>Failed QA - June</h3>
 <ul>
 <% FOREACH stat IN failed %>
 <li><% stat.0 %> - <% stat.1 %></li>
