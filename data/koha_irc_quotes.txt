@@ -1,4 +1,4 @@
-000232
+000267
 000001:1243739142.5887311,1,"'<pianohacker> resolve, rather, I doubt it needs lotion'"
 000002:1244045041.212275,1,'<jwagner> Hope springs eternal in little kitty hearts. Better watch the doors :-)'
 000003:1244771755.4169359,3,"""< bignose-work> the only constant in climate over the next several decades will be that the climate doesn't match what you just got used to."""
@@ -225,3 +225,38 @@
 000229:1357160354.7816939,5,"'rangi: relax, I signed it off :)'"
 000230:1357321763.8765581,1,"""<jcamins> I often find that the connectivity problem either A) goes away, or B) I have such a sugar high that I don't notice the connection time out after having cookies."""
 000231:1357655695.2780361,19,"""oleonard: You're not a real hardcore cataloger unless you catalog with hide_marc *and* advancedMARCeditor enabled: http://screencast.com/t/7qo1Wiokhe"""
+000232:1359397878.3133481,19,'<cait> oh... i miss myshkin <cait> I mean jared.. of course'
+000233:1360861566.323348,1,"""<oleonard> How about Now that she's three my daughter has terrible authority control"""
+000234:1362099561.3754089,28,"""<oleonard> I was just reading the logs because I didn't know where else to go to find out what to do with an extra half an avacado"""
+000235:1362686103.259553,5,'libsysguy: I feel like working on koha is like cooking at the fire station. First one to complain is the next one to cook.'
+000236:1363126212.56233,5,"""eythian: Broadening Koha's appeal and making it ready for a post-MARC world. <-- post-MARC world sounds like post apocalyptic world , except it's MARC, so it's more like post-post-apocalyptic world"""
+000237:1363274033.4155469,1,'<magnuse> lightbugs are probably easier to solve than hardbugs'
+000238:1364416844.455049,1,"'<wizzyrea> JOKES FOR NERDS, JOKES FOR NERDS'"
+000239:1364986446.5064349,5,"""slef: man cannot live by beer alone. But it's fun to try!"""
+000240:1365200549.890625,1,"""<wizzyrea> we will have no hazing of RM's"""
+000241:1366297690.48488,19,'oleonard: The Pootle box at midnight sounds like a mystery novel'
+000242:1366747368.737777,19,"""jcamins: Why doesn't Kochbuchverlag have an umlaut? drojf: where would you put the umlaut? :) oleonard: Everywhere!"""
+000243:1366987032.330965,21,'only when yousend no patches at all you will never break something'
+000244:1367361440.951663,32,"""'If you really didn't do it yourself, then yes, the only other conclusion is you were/are hacked by someone who likes to upgrade Koha'"""
+000245:1367536030.7001989,1,'<jcamins> Noooooooooooo!!!! wahanui! Cut down in the prime of life!'
+000246:1367579042.408711,5,'trea: kf no longer needs the weirding module'
+000247:1368057285.1736901,5,'<eythian> Only cockroaches and Search.pm will survive the nuclear apocalypse.'
+000248:1368487153.887255,5,"'<jcamins> ...""Koha\'s initial FRBR implementation was sane.""'"
+000249:1368703805.1852331,28,"'<jcamins> Alas, I have no fruit.'"
+000250:1369371160.823806,5,'<cjh> This code smells of wine.'
+000251:1369371403.9125011,5,"""<zebran00b> I'm thinking there's a regular expression for this"""
+000252:1369608149.4011869,3,"""<@jcamins> Really the issues is that Anglo-American libraries have settled on a profoundly stupid format that utterly fails to express anything that patrons care about, while going on at great length about things patrons don't care about."""
+000253:1369779319.682874,5,"""<drojf> buy humble bundle, sign off on koha patches instead of playing. leisure time, i'm doing it right."""
+000254:1369950127.1995389,5,"""<liw> ... backups. did someone mention backups? I'm sure I heard someone say backups. Backup! DID SOMEONE SAY BACKUPS? I LOVE BACKUPS! BACKUPS ARE AWESOME!"""
+000255:1370299177.045553,5,"""<gmcharlt> if wahanui is an infobot, does that make it's mom a databot?"""
+000256:1370403205.542197,5,"'<jcamins> Cool. New and spectacularly revised deduper works. And it is, if I may say, a super deduper.'"
+000257:1371075200.2974019,5,'<pianohacker> That code has enough smells to start a perfume shop'
+000258:1371075278.9406431,5,"'*pianohacker has written very good code with his good friends Tequila and Vodka trio-programming with him, thank you very much'"
+000259:1371075995.2924349,5,'<mtompset> What have I found?! The horror! The horror!'
+000260:1371076152.951514,34,"""<wizzyrea> it's a quoty kind of day"""
+000261:1371688206.1116359,3,"""<jcamins> I'm pretty sure the point of KohaCon is socialization and drinking."""
+000262:1371774060.0446899,5,'<dcook> The community seems to have such a healthy vitality as well. Koha really does help open the future for libraries.'
+000263:1371824467.0922811,1,"""<jcamins> I wasn't sleeping, I was just being bibliographic on other channels. :P"""
+000264:1372290658.934339,5,"""<druthb> Grokking someone else's code is still trying to reverse-engineer someone else's brain."""
+000265:1372307525.1124649,5,"'<gmcharlt> #koha ... once you join, you need never sleep again!'"
+000266:1372448960.375747,19,'<pianohacker> dpkg is a wonderful thing once you coax it out from within its grumpy shell'
