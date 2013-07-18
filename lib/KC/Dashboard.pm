@@ -7,6 +7,7 @@ our $VERSION = '0.1';
 
 use Dancer;
 use Dancer::Plugin::Database;
+
 #use Dancer::Plugin::Redis;
 use KC::Data ':all';
 use strict;
@@ -47,6 +48,11 @@ get '/' => sub {
     $sth = database->prepare($sql) or die database->errstr;
     $sth->execute or die $sth->errstr;
     my $failedqa = $sth->fetchall_arrayref;
+    $sql =
+"SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added like 'Pushed%' AND YEAR(bug_when) = YEAR(NOW()) AND MONTH(bug_when) = MONTH(NOW()) GROUP BY realname,added ORDER BY count(*) desc;";
+    $sth = database->prepare($sql) or die database->errstr;
+    $sth->execute or die $sth->errstr;
+    my $pushed = $sth->fetchall_arrayref;
     $sql =
 "SELECT count(*) as count ,subdate(current_date, 1) as day FROM bugs_activity WHERE date(bug_when) = subdate(current_date, 1);";
     $sth = database->prepare($sql) or die database->errstr;
@@ -96,6 +102,8 @@ AND added = 'Pushed to Master' AND (bug_severity = 'enhancement' OR bug_severity
         'qa'          => $qa,
         'failed'      => $failedqa,
         'old_nqa'     => $old_nqa,
+        'pushed'      => $pushed,
+
         #        'ohloh'       => $ohloh,
     };
 };
@@ -105,12 +113,14 @@ get '/bug_status' => sub {
       "SELECT count(*) as count,bug_status FROM bugs GROUP BY bug_status";
     my $sth = database->prepare($sql) or die database->errstr;
     $sth->execute or die $sth->errstr;
-    $sql = "SELECT count(*) as count,bug_status FROM bugs WHERE bug_severity <> 'enhancement'
+    $sql =
+"SELECT count(*) as count,bug_status FROM bugs WHERE bug_severity <> 'enhancement'
     AND bug_severity <> 'new feature' GROUP BY bug_status";
     my $sth2 = database->prepare($sql) or die database->errstr;
     $sth2->execute;
     template 'bug_status.tt',
-      { 'status' => $sth->fetchall_hashref('bug_status'),
+      {
+        'status'   => $sth->fetchall_hashref('bug_status'),
         'bugssign' => $sth2->fetchall_hashref('bug_status')
       };
 };
@@ -142,8 +152,6 @@ get '/rq' => sub {
     my $linequote = $csv->parse($quote);
     template 'quotetext.tt', { 'quote' => $csv };
 };
-
-
 
 get '/needsignoff' => sub {
     my $sql = "SELECT bugs.bug_id,short_desc FROM bugs
