@@ -7,7 +7,7 @@ our $VERSION = '0.1';
 
 use Dancer;
 use Dancer::Plugin::Database;
-use Dancer::Plugin::Redis;
+#use Dancer::Plugin::Redis;
 use KC::Data ':all';
 use strict;
 use warnings;
@@ -33,17 +33,17 @@ get '/' => sub {
     $sth->execute or die $sth->errstr;
     my $entries = $sth->fetchall_arrayref;
     $sql =
-"SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added='Signed Off' and bug_when >= '2013-06-01' AND bug_when < '2013-07-01' GROUP BY realname,added ORDER BY count(*) desc;";
+"SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added='Signed Off' AND YEAR(bug_when) = YEAR(NOW()) AND MONTH(bug_when) = MONTH(NOW()) GROUP BY realname,added ORDER BY count(*) desc;";
     $sth = database->prepare($sql) or die database->errstr;
     $sth->execute or die $sth->errstr;
     my $stats = $sth->fetchall_arrayref;
     $sql =
-"SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added='Passed QA' and bug_when >= '2013-06-01' AND bug_when < '2013-07-01' GROUP BY realname,added ORDER BY count(*) desc;";
+"SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added='Passed QA' AND YEAR(bug_when) = YEAR(NOW()) AND MONTH(bug_when) = MONTH(NOW())  GROUP BY realname,added ORDER BY count(*) desc;";
     $sth = database->prepare($sql) or die database->errstr;
     $sth->execute or die $sth->errstr;
     my $qa = $sth->fetchall_arrayref;
     $sql =
-"SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added='Failed QA' and bug_when >= '2013-06-01' AND bug_when < '2013-07-01' GROUP BY realname,added ORDER BY count(*) desc;";
+"SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added='Failed QA' AND YEAR(bug_when) = YEAR(NOW()) AND MONTH(bug_when) = MONTH(NOW()) GROUP BY realname,added ORDER BY count(*) desc;";
     $sth = database->prepare($sql) or die database->errstr;
     $sth->execute or die $sth->errstr;
     my $failedqa = $sth->fetchall_arrayref;
