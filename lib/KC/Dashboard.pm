@@ -25,14 +25,7 @@ set 'startup_info' => 1;
 set 'warnings'     => 1;
 
 get '/' => sub {
-    my $sql =
-"SELECT realname,bugs.bug_id,bug_when,short_desc                                            
-  FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid
-  AND bugs.bug_id=bugs_activity.bug_id AND added='Signed Off' 
-  ORDER BY bug_when DESC LIMIT 5";
-    my $sth = database->prepare($sql) or die database->errstr;
-    $sth->execute or die $sth->errstr;
-    my $entries = $sth->fetchall_arrayref;
+    my $entries = last5signoffs(database);
     $sql =
 "SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added='Signed Off' AND YEAR(bug_when) = YEAR(NOW()) AND MONTH(bug_when) = MONTH(NOW()) GROUP BY realname,added ORDER BY count(*) desc;";
     $sth = database->prepare($sql) or die database->errstr;
