@@ -203,29 +203,39 @@ src='http://jenkins.koha-community.org/job/Koha_Docs_3.10.x/badge/icon'></a>
 </div>
 
 <div class="row-fluid">
-<div class="span4">
-<h3>Signoffs - July</h3>
+<div class="span3">
+<h3>Signoffs - August</h3>
 <ul>
 <% FOREACH stat IN stats %>
 <li><% stat.0 %> - <% stat.1 %></li>
 <% END %></ul>
 </div>
 
-<div class="span4">
-<h3>Passed QA - July</h3>
+<div class="span3">
+<h3>Passed QA - August</h3>
 <ul>
 <% FOREACH stat IN qa %>
 <li><% stat.0 %> - <% stat.1 %></li>
 <% END %></ul>
 </div>
 
-<div class="span4">
-<h3>Failed QA - July</h3>
+<div class="span3">
+<h3>Failed QA - August</h3>
 <ul>
 <% FOREACH stat IN failed %>
 <li><% stat.0 %> - <% stat.1 %></li>
 <% END %></ul>
 </div>
+
+<div class="span3">
+<h3>Pushed - August</h3>
+<ul>
+<% FOREACH stat IN pushed %>
+<li><% stat.0 %> - <% stat.1 %></li>
+<% END %></ul>
+</div>
+
+
 </div>
 
 <div class="row-fluid">

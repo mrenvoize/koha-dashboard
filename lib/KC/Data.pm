@@ -19,7 +19,7 @@ our @ISA = qw(Exporter);
 our %EXPORT_TAGS = (
     'all' => [
         qw(
-          get_dates get_devs ohloh_activity last5signoffs
+          get_dates get_devs ohloh_activity last5signoffs monthlyactivity
           )
     ]
 );
@@ -39,10 +39,20 @@ sub last5signoffs {
     FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid
       AND bugs.bug_id=bugs_activity.bug_id AND added='Signed Off' 
         ORDER BY bug_when DESC LIMIT 5";
-    my $sth = database->prepare($sql) or die database->errstr;
+    my $sth = $database->prepare($sql) or die $database->errstr;
     $sth->execute or die $sth->errstr;
     my $entries = $sth->fetchall_arrayref;
     return $entries;
+}
+
+sub monthlyactivity {
+    my ( $database, $type ) = @_;
+    my $sql =
+"SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added=? AND YEAR(bug_when) = YEAR(NOW()) AND MONTH(bug_when) = MONTH(NOW()) GROUP BY realname,added ORDER BY count(*) desc;";
+    my $sth = $database->prepare($sql) or die $database->errstr;
+    $sth->execute($type) or die $sth->errstr;
+    my $stats = $sth->fetchall_arrayref;
+    return ($stats);
 }
 
 sub get_dates {

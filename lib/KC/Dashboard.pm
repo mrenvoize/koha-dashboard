@@ -1,7 +1,7 @@
 package KC::Dashboard;
 
 # Script to create dashboard.koha-community.org
-# Copyright chris@bigballofwax.co.nz 2012
+# Copyright chris@bigballofwax.co.nz 2012,2013
 
 our $VERSION = '0.1';
 
@@ -26,24 +26,12 @@ set 'warnings'     => 1;
 
 get '/' => sub {
     my $entries = last5signoffs(database);
-    $sql =
-"SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added='Signed Off' AND YEAR(bug_when) = YEAR(NOW()) AND MONTH(bug_when) = MONTH(NOW()) GROUP BY realname,added ORDER BY count(*) desc;";
-    $sth = database->prepare($sql) or die database->errstr;
-    $sth->execute or die $sth->errstr;
-    my $stats = $sth->fetchall_arrayref;
-    $sql =
-"SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added='Passed QA' AND YEAR(bug_when) = YEAR(NOW()) AND MONTH(bug_when) = MONTH(NOW())  GROUP BY realname,added ORDER BY count(*) desc;";
-    $sth = database->prepare($sql) or die database->errstr;
-    $sth->execute or die $sth->errstr;
-    my $qa = $sth->fetchall_arrayref;
-    $sql =
-"SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added='Failed QA' AND YEAR(bug_when) = YEAR(NOW()) AND MONTH(bug_when) = MONTH(NOW()) GROUP BY realname,added ORDER BY count(*) desc;";
-    $sth = database->prepare($sql) or die database->errstr;
-    $sth->execute or die $sth->errstr;
-    my $failedqa = $sth->fetchall_arrayref;
-    $sql =
+    my $stats = monthlyactivity(database,'Signed Off');
+    my $qa = monthlyactivity(database, 'Passed QA');
+    my $failedqa = monthlyactivity(database, 'Failed QA');
+    my $sql =
 "SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added like 'Pushed%' AND YEAR(bug_when) = YEAR(NOW()) AND MONTH(bug_when) = MONTH(NOW()) GROUP BY realname,added ORDER BY count(*) desc;";
-    $sth = database->prepare($sql) or die database->errstr;
+    my $sth = database->prepare($sql) or die database->errstr;
     $sth->execute or die $sth->errstr;
     my $pushed = $sth->fetchall_arrayref;
     $sql =

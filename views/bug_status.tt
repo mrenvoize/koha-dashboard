@@ -4,4 +4,5 @@
 <li><a href="http://bugs.koha-community.org/bugzilla3/buglist.cgi?cmdtype=dorem&remaction=run&namedcmd=Passed%20QA&sharer_id=1">Passed QA</a> -  <span class="badge badge-success"><% status.${"Passed QA"}.count %></span> <span class="badge badge-success"><% bugssign.${"Passed QA"}.count %> bugs </span></li>
 <li><a href="http://bugs.koha-community.org/bugzilla3/buglist.cgi?cmdtype=dorem&remaction=run&namedcmd=Failed%20QA&sharer_id=1">Failed QA</a> - <span class="badge badge-warning"><% status.${"Failed QA"}.count %></span></li>
 <li><a href="http://bugs.koha-community.org/bugzilla3/buglist.cgi?cmdtype=dorem&remaction=run&namedcmd=Does%20not%20apply&sharer_id=1">Patch Doesn't apply</a> - <span class="badge badge-warning"><% status.${"Patch doesn't apply"}.count %></span></li>
+<li><a href="http://bugs.koha-community.org/bugzilla3/buglist.cgi?cmdtype=dorem&remaction=run&namedcmd=In%20discussion&sharer_id=21">In Discussion</a> - <span class="badge badge-warning"><% status.${"In Discussion"}.count %></span></li>
 </ul>
