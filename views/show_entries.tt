@@ -1,270 +1,281 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
 <html>
 <head>
-<meta name="generator" content="HTML Tidy for Linux/x86 (vers 25 March 2009), see www.w3.org">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Koha Dashboard</title>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1.0">
 
-<script src="jquery.min.js" type="text/javascript">
+  <title>Koha Dashboard</title>
+  <script src="jquery.min.js" type="text/javascript">
 </script>
-<script language="javascript" type="text/javascript" src="jquery.jqplot.min.js"></script>
-<script language="javascript" type="text/javascript" src="jqplot.dateAxisRenderer.min.js"></script>
-<link rel="stylesheet" href="/assets/css/bootstrap.css">
-<link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="jquery.jqplot.css" />
-
-<style type="text/css">
+  <script language="javascript" type="text/javascript" src=
+  "jquery.jqplot.min.js">
+</script>
+  <script language="javascript" type="text/javascript" src=
+  "jqplot.dateAxisRenderer.min.js">
+</script>
+  <link rel="stylesheet" href="/assets/css/bootstrap.css" type=
+  "text/css">
+  <link href="/assets/css/bootstrap-responsive.css" rel=
+  "stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="jquery.jqplot.css">
+  <style type="text/css">
 #example_4 ul li { 
-padding-bottom:10px;
-}
-#content {
-padding:15px 20px 15px 10px;
-}
-#jenkins {margin-left: 10px;}
-</style>
-
-<script type="text/javascript">
+  padding-bottom:10px;
+  }
+  #content {
+  padding:15px 20px 15px 10px;
+  }
+  #jenkins {margin-left: 10px;}
+  </style>
+  <script type="text/javascript">
 function loadbugs(){
   $.get('http://dashboard.koha-community.org/bug_status'
   ,function(data){ 
   $('#bugs').html(data);
   }
   )
-};
+  };
 
-function randombug(){
+  function randombug(){
   $.get('http://dashboard.koha-community.org/randombug'
   ,function(data){ 
   $('#random').html(data);
   }
   )
   setTimeout(randombug, 20000);
-};
+  };
 
-function randomquote(){
+  function randomquote(){
       $.get('http://dashboard.koha-community.org/randomquote'
         ,function(data){ 
               $('#randomq').html(data);
                 }
                   )
         setTimeout(randomquote, 60000);
-};
+  };
 
-function needsignoff(){
+  function needsignoff(){
   $.get('http://dashboard.koha-community.org/needsignoff'
   ,function(data){ 
   $('#needsignoff').html(data);
   }
   )
   setTimeout(needsignoff, 100000);
-};
+  };
 
-$(document).ready(function(){
+  $(document).ready(function(){
          loadbugs();
          randombug();
          randomquote();
          needsignoff();
-});
+  });
 
-</script>
+  </script>
 </head>
+
 <body id="home">
-<div class="navbar"> 
-  <div class="navbar-inner"> 
-    <div class="container-fluid">
-      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-	<span class="icon-bar"></span>
-	<span class="icon-bar"></span>
-      </a>
-      <ul class="nav">
-        <li class="page-item-home current_page_item"><a href="http://koha-community.org/">Home</a></li>
-	<li class="page-item-home"><a href="http://wiki.koha-community.org/">Wiki</a></li>
-	<li class="page-item-home"><a href="http://bugs.koha-community.org/">Bugzilla</a></li>
-	<li class="page-item-home"><a href="http://jenkins.koha-community.org/">Jenkins</a></li>
-	<li class="page-item-home"><a href="http://wiki.koha-community.org/wiki/Sandboxes">Sandboxes</a></li>
-     </ul>
-   </div>
- </div>
-</div>
-	 
-<div class="container-fluid">  
-<div class="row-fluid">
-<div class="span9">
-<div class="hero-unit">
-<h1>Koha Dashboard</h1>
-</div>
-</div>
-<div class="span3">
-<h3>Random Bug</h3>
-<div id="random"></div>
-<div id="randomq"></div>
-</div>
-</div>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <a class="btn btn-navbar" data-toggle="collapse"
+        data-target=".nav-collapse"></a>
 
-<div class="row-fluid">
-<div class="span3">
-<h3>Last 5 sign offs</h3>
-<ul><% FOREACH entry IN entries %>
-<li><% entry.0 %> - 
-<a href="http://bugs.koha-community.org/bugzilla3/show_bug.cgi?id=<% entry.1 %>"><% entry.1 %></a> - <% entry.3 %></li>
-<% END %>
-</ul>
-</div>
+        <ul class="nav">
+          <li class="page-item-home current_page_item"><a href=
+          "http://koha-community.org/">Home</a></li>
 
-<div class="span3">
-<h3>Needs Signoff</h3>
-<b>10 Oldest bugs </b>
-<div id="needsignoff"></div>
-</div>
+          <li class="page-item-home"><a href=
+          "http://wiki.koha-community.org/">Wiki</a></li>
 
-<div class="span3">
-<h3>Needs QA</h3>
-<b>10 Oldest bugs </b>
-<ul>
-<% FOREACH entry IN old_nqa %>
-<li><a href="http://bugs.koha-community.org/bugzilla3/show_bug.cgi?id=<% entry.0 %>"><% entry.0 %></a> - <% entry.1 %></li>
-<% END %>
-</ul>
-</div>
+          <li class="page-item-home"><a href=
+          "http://bugs.koha-community.org/">Bugzilla</a></li>
 
-<div class="span3">
-<h3>New features recently pushed</h3>
-<ul>
-<% FOREACH enhancement IN enhancments %>
-<li><a href="http://bugs.koha-community.org/bugzilla3/show_bug.cgi?id=<% enhancement.0 %>"><% enhancement.0%></a> -  <% enhancement.1 %> - <% enhancement.2 %></li>
-<% END %>
-</ul>
-</div>
+          <li class="page-item-home"><a href=
+          "http://jenkins.koha-community.org/">Jenkins</a></li>
 
-</div>
+          <li class="page-item-home"><a href=
+          "http://wiki.koha-community.org/wiki/Sandboxes">Sandboxes</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-<div class="row-fluid">
-<div class="span3">
-<h3> New Developers </h3>
-<ul>
-<% FOREACH dev IN devs %>
-<li><% dev.dev %></li>
-<% END %>
-</ul>
-</div>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span9">
+        <div class="hero-unit">
+          <h1>Koha Dashboard</h1>
+        </div>
+      </div>
 
-<div class="span3">
-<h3>Bug activity </h3>
-<% daybefore.day %> - 
-<% daybefore.count %> changes <br/>
-<% yesterday.day %> - 
-<% yesterday.count %> changes <br />
-<% today.day %> - 
-<% today.count %> changes
-</div>
+      <div class="span3">
+        <h3>Random Bug</h3>
 
-<div class="span3">
-<h3>Bug statuses</h3>
-<div id="bugs"></div>
-</div>
+        <div id="random"></div>
 
-<div class="span3">
-<h3>Build statuses</h3>
-Master - <a
-href='http://jenkins.koha-community.org/job/Koha_master/'><img
-src='http://jenkins.koha-community.org/job/Koha_master/badge/icon'></a><br
-/>
-3.8.x - <a
-href='http://jenkins.koha-community.org/job/Koha_3.8.x/'><img
-src='http://jenkins.koha-community.org/job/Koha_3.8.x/badge/icon'></a>
-<br />
-3.10.x - <a
-href='http://jenkins.koha-community.org/job/Koha_3.10.x/'><img
-src='http://jenkins.koha-community.org/job/Koha_3.10.x/badge/icon'></a>
-<br />
-3.12.x - <a
-href='http://jenkins.koha-community.org/job/Koha_3.12.x/'><img
-src='http://jenkins.koha-community.org/job/Koha_3.12.x/badge/icon'></a><br
-/>
-Docs Master - <a
-href='http://jenkins.koha-community.org/job/Koha_Docs/'><img
-src='http://jenkins.koha-community.org/job/Koha_Docs/badge/icon'></a>
-<br />
-Docs 3.8.x - <a
-href='http://jenkins.koha-community.org/job/Koha_Docs_3.8.x/'><img
-src='http://jenkins.koha-community.org/job/Koha_Docs_3.8.x/badge/icon'></a>
-<br />
-Docs 3.10.x - <a
-href='http://jenkins.koha-community.org/job/Koha_Docs_3.10.x/'><img
-src='http://jenkins.koha-community.org/job/Koha_Docs_3.10.x/badge/icon'></a>
-<br />
+        <div id="randomq"></div>
+      </div>
+    </div>
 
+    <div class="row-fluid">
+      <div class="span3">
+        <h3>Last 5 sign offs</h3>
 
-</div>
+        <ul>
+          <% FOREACH entry IN entries %>
 
+          <li><% entry.0 %>- <a href=
+          "http://bugs.koha-community.org/bugzilla3/show_bug.cgi?id=%3C%%20entry.1%20%%3E">
+          <% entry.1 %></a> - <% entry.3 %></li><% END %>
+        </ul>
+      </div>
 
+      <div class="span3">
+        <h3>Needs Signoff</h3><b>10 Oldest bugs</b>
 
-</div>
+        <div id="needsignoff"></div>
+      </div>
 
-<div class="row-fluid">
-<div class="span3">
-<h3>Signoffs - August</h3>
-<ul>
-<% FOREACH stat IN stats %>
-<li><% stat.0 %> - <% stat.1 %></li>
-<% END %></ul>
-</div>
+      <div class="span3">
+        <h3>Needs QA</h3><b>10 Oldest bugs</b>
 
-<div class="span3">
-<h3>Passed QA - August</h3>
-<ul>
-<% FOREACH stat IN qa %>
-<li><% stat.0 %> - <% stat.1 %></li>
-<% END %></ul>
-</div>
+        <ul>
+          <% FOREACH entry IN old_nqa %>
 
-<div class="span3">
-<h3>Failed QA - August</h3>
-<ul>
-<% FOREACH stat IN failed %>
-<li><% stat.0 %> - <% stat.1 %></li>
-<% END %></ul>
-</div>
+          <li><a href=
+          "http://bugs.koha-community.org/bugzilla3/show_bug.cgi?id=%3C%%20entry.0%20%%3E">
+          <% entry.0 %></a> - <% entry.1 %></li><% END %>
+        </ul>
+      </div>
 
-<div class="span3">
-<h3>Pushed - August</h3>
-<ul>
-<% FOREACH stat IN pushed %>
-<li><% stat.0 %> - <% stat.1 %></li>
-<% END %></ul>
-</div>
+      <div class="span3">
+        <h3>New features recently pushed</h3>
 
+        <ul>
+          <% FOREACH enhancement IN enhancments %>
 
-</div>
+          <li><a href=
+          "http://bugs.koha-community.org/bugzilla3/show_bug.cgi?id=%3C%%20enhancement.0%20%%3E">
+          <% enhancement.0%></a> - <% enhancement.1 %> -
+          <% enhancement.2 %></li><% END %>
+        </ul>
+      </div>
+    </div>
 
-<div class="row-fluid">
-<div class="span8">
-<h3>Cumulative totals for the last week</h3>
-<div id="chartdiv" style="height:400px;width:600px; "></div>
-<script>
- $.jqplot.config.enablePlugins = true;
- $.getJSON('http://bugs.koha-community.org/cgi-bin/progress.pl?type=json',
- function(data) {
-     $.jqplot('chartdiv', data, 
-     { title:'Patch Status Changes',
-     axes:{xaxis:{renderer: $.jqplot.DateAxisRenderer},yaxis:{min:0,max:100}},
-     legend:{show:true,
-     labels: ['Needs Signoff','Signed Off','Passed QA','Pushed'],},                                  
-     });
-});
-</script>
-</div>
+    <div class="row-fluid">
+      <div class="span3">
+        <h3>New Developers</h3>
 
-</div>
+        <ul>
+          <% FOREACH dev IN devs %>
 
+          <li><% dev.dev %></li><% END %>
+        </ul>
+      </div>
 
+      <div class="span3">
+        <h3>Bug activity</h3><% daybefore.day %>-
+        <% daybefore.count %> changes<br>
+        <% yesterday.day %> - <% yesterday.count %> changes<br>
+        <% today.day %> - <% today.count %> changes
+      </div>
 
-</div>
-</div>
-</div>
+      <div class="span3">
+        <h3>Bug statuses</h3>
 
-<!-- <div id="main" class="clearfix">
+        <div id="bugs"></div>
+      </div>
+
+      <div class="span3">
+        <h3>Build statuses</h3>Master - <a href=
+        'http://jenkins.koha-community.org/job/Koha_master/'><img src='http://jenkins.koha-community.org/job/Koha_master/badge/icon'>
+        </a><br>
+        3.8.x - <a href=
+        'http://jenkins.koha-community.org/job/Koha_3.8.x/'><img src='http://jenkins.koha-community.org/job/Koha_3.8.x/badge/icon'>
+        </a><br>
+        3.10.x - <a href=
+        'http://jenkins.koha-community.org/job/Koha_3.10.x/'><img src='http://jenkins.koha-community.org/job/Koha_3.10.x/badge/icon'>
+        </a><br>
+        3.12.x - <a href=
+        'http://jenkins.koha-community.org/job/Koha_3.12.x/'><img src='http://jenkins.koha-community.org/job/Koha_3.12.x/badge/icon'>
+        </a><br>
+        Docs Master - <a href=
+        'http://jenkins.koha-community.org/job/Koha_Docs/'><img src='http://jenkins.koha-community.org/job/Koha_Docs/badge/icon'>
+        </a><br>
+        Docs 3.8.x - <a href=
+        'http://jenkins.koha-community.org/job/Koha_Docs_3.8.x/'><img src='http://jenkins.koha-community.org/job/Koha_Docs_3.8.x/badge/icon'>
+        </a><br>
+        Docs 3.10.x - <a href=
+        'http://jenkins.koha-community.org/job/Koha_Docs_3.10.x/'><img src='http://jenkins.koha-community.org/job/Koha_Docs_3.10.x/badge/icon'>
+        </a><br>
+      </div>
+    </div>
+
+    <div class="row-fluid">
+      <div class="span3">
+        <h3>Signoffs - September</h3>
+
+        <ul>
+          <% FOREACH stat IN stats %>
+
+          <li><% stat.0 %>- <% stat.1 %></li><% END %>
+        </ul>
+      </div>
+
+      <div class="span3">
+        <h3>Passed QA - September</h3>
+
+        <ul>
+          <% FOREACH stat IN qa %>
+
+          <li><% stat.0 %>- <% stat.1 %></li><% END %>
+        </ul>
+      </div>
+
+      <div class="span3">
+        <h3>Failed QA - September</h3>
+
+        <ul>
+          <% FOREACH stat IN failed %>
+
+          <li><% stat.0 %>- <% stat.1 %></li><% END %>
+        </ul>
+      </div>
+
+      <div class="span3">
+        <h3>Pushed - September</h3>
+
+        <ul>
+          <% FOREACH stat IN pushed %>
+
+          <li><% stat.0 %>- <% stat.1 %></li><% END %>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row-fluid">
+      <div class="span8">
+        <h3>Cumulative totals for the last week</h3>
+
+        <div id="chartdiv" style="height:400px;width:600px;">
+        </div><script type="text/javascript">
+$.jqplot.config.enablePlugins = true;
+        $.getJSON('http://bugs.koha-community.org/cgi-bin/progress.pl?type=json',
+        function(data) {
+        $.jqplot('chartdiv', data, 
+        { title:'Patch Status Changes',
+        axes:{xaxis:{renderer: $.jqplot.DateAxisRenderer},yaxis:{min:0,max:100}},
+        legend:{show:true,
+        labels: ['Needs Signoff','Signed Off','Passed QA','Pushed'],},                                  
+        });
+        });
+        </script>
+      </div>
+    </div>
+  </div><!-- <div id="main" class="clearfix">
 <div id="container">
 <div id="content">
 <h3>Jenkins Status</h3>
