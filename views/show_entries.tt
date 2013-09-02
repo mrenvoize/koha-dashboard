@@ -128,7 +128,7 @@ function loadbugs(){
           <% FOREACH entry IN entries %>
 
           <li><% entry.0 %>- <a href=
-          "http://bugs.koha-community.org/bugzilla3/show_bug.cgi?id=%3C%%20entry.1%20%%3E">
+          "http://bugs.koha-community.org/bugzilla3/show_bug.cgi?id=<% entry.1 %>">
           <% entry.1 %></a> - <% entry.3 %></li><% END %>
         </ul>
       </div>
@@ -146,7 +146,7 @@ function loadbugs(){
           <% FOREACH entry IN old_nqa %>
 
           <li><a href=
-          "http://bugs.koha-community.org/bugzilla3/show_bug.cgi?id=%3C%%20entry.0%20%%3E">
+          "http://bugs.koha-community.org/bugzilla3/show_bug.cgi?id=<% entry.0 %>">
           <% entry.0 %></a> - <% entry.1 %></li><% END %>
         </ul>
       </div>
@@ -158,7 +158,7 @@ function loadbugs(){
           <% FOREACH enhancement IN enhancments %>
 
           <li><a href=
-          "http://bugs.koha-community.org/bugzilla3/show_bug.cgi?id=%3C%%20enhancement.0%20%%3E">
+          "http://bugs.koha-community.org/bugzilla3/show_bug.cgi?id=<% enhancement.0 %>">
           <% enhancement.0%></a> - <% enhancement.1 %> -
           <% enhancement.2 %></li><% END %>
         </ul>
