@@ -1,4 +1,4 @@
-000267
+000275
 000001:1243739142.5887311,1,"'<pianohacker> resolve, rather, I doubt it needs lotion'"
 000002:1244045041.212275,1,'<jwagner> Hope springs eternal in little kitty hearts. Better watch the doors :-)'
 000003:1244771755.4169359,3,"""< bignose-work> the only constant in climate over the next several decades will be that the climate doesn't match what you just got used to."""
@@ -260,3 +260,11 @@
 000264:1372290658.934339,5,"""<druthb> Grokking someone else's code is still trying to reverse-engineer someone else's brain."""
 000265:1372307525.1124649,5,"'<gmcharlt> #koha ... once you join, you need never sleep again!'"
 000266:1372448960.375747,19,'<pianohacker> dpkg is a wonderful thing once you coax it out from within its grumpy shell'
+000267:1372820647.007329,33,'gmcharlt: I like patches that remove dead code almost as much as I like cookies.'
+000268:1375296027.5916629,1,"""<jcamins> windows-- <jcamins> ie-- <oleonard> You'll have to go elsewhere if you're looking to pick a fight jcamins"""
+000269:1376429959.558459,1,"""<wizzyrea> it's boring quote day!"""
+000270:1376498939.6199939,1,"""oleonard hopes you can't catch data-lung from working in data mines"""
+000271:1376514307.452328,5,"""pianohacker: hahaha, he's thinking Search.pm is supposed to make sense. Rookie mistake."""
+000272:1377742713.9032481,5,"""jcamins: THIS IS A SECURITY RISK -- no kidding. It's Windows."""
+000273:1377824672.939991,5,"""rangi: The main thing I came to realise is -- 'Your cataloguing standards are bad, and you should feel bad' - which translates to - 'friends don't let friends use RDA'"""
+000274:1378095657.223294,5,'eythian: you should have a separate server because messing on production is always a Bad Idea'
