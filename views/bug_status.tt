@@ -1,5 +1,17 @@
 <ul>
-<li><a href="http://bugs.koha-community.org/bugzilla3/buglist.cgi?cmdtype=dorem&remaction=run&namedcmd=Needs%20Signoff&sharer_id=1"> Needs Signoff</a> -  <span class="badge badge-important"><% status.${"Needs Signoff"}.count %></span>  <span class="badge badge-important"><% bugssign.${"Needs Signoff"}.count %> bugs</span></li>
+<li><a href="http://bugs.koha-community.org/bugzilla3/buglist.cgi?cmdtype=dorem&remaction=run&namedcmd=Needs%20Signoff&sharer_id=1"> Needs Signoff</a> -  
+<% IF status.${"Needs Signoff"}.count < 51 %>
+<span class="badge badge-success">
+<% ELSE %>
+<span class="badge badge-important">
+<% END %>
+<% status.${"Needs Signoff"}.count %></span>
+<% IF  bugssign.${"Needs Signoff"}.count < 31 %>
+<span class="badge badge-success">
+<% ELSE %>
+<span class="badge badge-important">
+<% END %>
+<% bugssign.${"Needs Signoff"}.count %> bugs</span></li>
 
 <li><a href="http://bugs.koha-community.org/bugzilla3/buglist.cgi?cmdtype=dorem&remaction=run&namedcmd=Signed%20Off&sharer_id=1">Signed Off</a> - 
 <% IF status.${"Signed Off"}.count < 31 %>
