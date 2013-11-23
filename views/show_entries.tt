@@ -216,7 +216,7 @@ function loadbugs(){
 
     <div class="row-fluid">
       <div class="span3">
-        <h3>Signoffs - October</h3>
+        <h3>Signoffs - November</h3>
 
         <ul>
           <% FOREACH stat IN stats %>
@@ -226,7 +226,7 @@ function loadbugs(){
       </div>
 
       <div class="span3">
-        <h3>Passed QA - October</h3>
+        <h3>Passed QA - November</h3>
 
         <ul>
           <% FOREACH stat IN qa %>
@@ -236,7 +236,7 @@ function loadbugs(){
       </div>
 
       <div class="span3">
-        <h3>Failed QA - October</h3>
+        <h3>Failed QA - November</h3>
 
         <ul>
           <% FOREACH stat IN failed %>
@@ -246,7 +246,7 @@ function loadbugs(){
       </div>
 
       <div class="span3">
-        <h3>Pushed - October</h3>
+        <h3>Pushed - November</h3>
 
         <ul>
           <% FOREACH stat IN pushed %>
