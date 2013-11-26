@@ -1,0 +1,101 @@
+<% INCLUDE 'includes/doc-head.inc' %>
+<body id="home">
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <a class="btn btn-navbar" data-toggle="collapse"
+        data-target=".nav-collapse"></a>
+
+        <ul class="nav">
+          <li class="page-item-home current_page_item"><a href=
+          "http://koha-community.org/">Home</a></li>
+
+          <li class="page-item-home"><a href=
+          "http://wiki.koha-community.org/">Wiki</a></li>
+
+          <li class="page-item-home"><a href=
+          "http://bugs.koha-community.org/">Bugzilla</a></li>
+
+          <li class="page-item-home"><a href=
+          "http://jenkins.koha-community.org/">Jenkins</a></li>
+
+          <li class="page-item-home"><a href=
+          "http://wiki.koha-community.org/wiki/Sandboxes">Sandboxes</a></li>
+          <li class="page-item-home"><a href=
+                    "/">Dashboard</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+  <div class="row-fluid">
+  <% counter = 0 %>
+  <% FOREACH bug IN bugs %>
+      <% IF counter == 6 %>
+      </div>
+       <div class="row-fluid">
+       <% counter = 0 %>
+      <% END %>
+      <div class="span2">
+         <a class="linky" href="#" data-toggle="tooltip" data-placement="top" title="<% bug.1 %>" rel="tooltip">
+        <% IF bug.3 == 'blocker' %>
+        <span class="btn btn-danger btn-block" 
+        <% ELSIF bug.3 == 'critical'%>
+        <span class="btn btn-warning btn-block" 
+        <% ELSIF bug.3 == 'enhancement'%>
+        <span class="btn btn-info btn-block" 
+        <% ELSIF bug.3 == 'major'%>
+        <span class="btn btn-inverse btn-block" 
+        <% ELSIF bug.3 == 'new feature'%>
+        <span class="btn btn-success btn-block" 
+        <% ELSIF bug.3 == 'minor'%>
+        <span class="btn btn-primary btn-block" 
+        <% ELSE %>
+        <span class="btn btn-block" 
+        <% END %>
+        id="b<% bug.0 %>">
+        <% bug.0 %><br />
+        <% bug.3 %>
+        </span>
+        </a>
+      </div>
+      <% counter = counter + 1 %>
+      <% END %>
+    </div>
+   </div>
+ <script src="assets/js/jquery.js"></script>
+ <script src="assets/js/bootstrap-transition.js"></script>
+         <script src="assets/js/bootstrap-alert.js"></script>
+             <script src="assets/js/bootstrap-modal.js"></script>
+                 <script src="assets/js/bootstrap-dropdown.js"></script>
+                     <script src="assets/js/bootstrap-scrollspy.js"></script>
+                         <script src="assets/js/bootstrap-tab.js"></script>
+                             <script src="assets/js/bootstrap-tooltip.js"></script>
+                                 <script src="assets/js/bootstrap-popover.js"></script>
+                                     <script src="assets/js/bootstrap-button.js"></script>
+                                         <script src="assets/js/bootstrap-collapse.js"></script>
+                                             <script src="assets/js/bootstrap-carousel.js"></script>
+                                                 <script src="assets/js/bootstrap-typeahead.js"></script>
+                                                     <script src="assets/js/bootstrap-affix.js"></script>
+
+                                                             <script src="assets/js/google-code-prettify/prettify.js"></script>
+
+                                                                 <script src="assets/js/application.js"></script>
+<script>
+$(document).ready(function(){
+    $(".btn").click(function() {
+
+           $('#'+this.id).attr('class','btn btn-link');
+    });
+        $("[rel=tooltip]").tooltip({ placement: 'top'});
+        $.getJSON("/claimedbugs/needssignoff", function(data){ 
+            $.each( data, function( key, val ) {
+                $id = '#b' + key;
+                $($id).attr('class','btn btn-link');
+            });
+        });
+});
+
+</script>
+</body>
+</html>

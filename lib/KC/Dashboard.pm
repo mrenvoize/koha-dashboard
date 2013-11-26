@@ -25,10 +25,10 @@ set 'startup_info' => 1;
 set 'warnings'     => 1;
 
 get '/' => sub {
-    my $entries = last5signoffs(database);
-    my $stats = monthlyactivity(database,'Signed Off');
-    my $qa = monthlyactivity(database, 'Passed QA');
-    my $failedqa = monthlyactivity(database, 'Failed QA');
+    my $entries  = last5signoffs(database);
+    my $stats    = monthlyactivity( database, 'Signed Off' );
+    my $qa       = monthlyactivity( database, 'Passed QA' );
+    my $failedqa = monthlyactivity( database, 'Failed QA' );
     my $sql =
 "SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added like 'Pushed%' AND YEAR(bug_when) = YEAR(NOW()) AND MONTH(bug_when) = MONTH(NOW()) GROUP BY realname,added ORDER BY count(*) desc;";
     my $sth = database->prepare($sql) or die database->errstr;
@@ -144,5 +144,18 @@ get '/needsignoff' => sub {
 
 };
 
+get '/taskboard' => sub {
+    my $sql = "
+    SELECT bugs.bug_id,short_desc,count(attach_id) as patches,bug_severity FROM bugs,attachments WHERE bugs.bug_id = attachments.bug_id AND bug_status ='Needs Signoff' AND attachments.isobsolete = 0 AND attachments.ispatch = 1 GROUP by bugs.bug_id ORDER BY lastdiffed;";
+    my $sth = database->prepare($sql) or die database->errstr;
+    $sth->execute or die $sth->errstr;
+
+    template 'taskboard.tt', { 'bugs' => $sth->fetchall_arrayref };
+};
+
+get '/claimedbugs/needssignoff' => sub {
+    content_type 'application/json';
+        return to_json { 5342 => 1 };
+    };
 true;
 
