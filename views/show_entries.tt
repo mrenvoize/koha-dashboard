@@ -16,25 +16,10 @@
   <script language="javascript" type="text/javascript" src=
   "jqplot.dateAxisRenderer.min.js">
 </script>
-  <link rel="stylesheet" href="/assets/css/bootstrap.css" type=
-  "text/css">
-  <link href="/assets/css/bootstrap-responsive.css" rel=
-  "stylesheet" type="text/css">
+  <link rel="stylesheet" href="/assets/css/bootstrap.css" type="text/css">
+  <link href="/assets/css/bootstrap-responsive.css" rel= "stylesheet" type="text/css">
+  <link rel="stylesheet" href="/assets/css/local.css" type="text/css">
   <link rel="stylesheet" type="text/css" href="jquery.jqplot.css">
-  <style type="text/css">
-#example_4 ul li { 
-  padding-bottom:10px;
-  }
-  #content {
-  padding:15px 20px 15px 10px;
-  }
-  #jenkins {margin-left: 10px;}
-.hero-unit {
-    background-image: -moz-linear-gradient(top left, #5BAD3F 0%, #8CEF29 100%); (this is firefox specfic, for chrome add (/* Webkit (Safari/Chrome 10) */ 
-    background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #5BAD3F), color-stop(1, #8CEF29)); or /* Webkit (Chrome 11+) */
-    background-image: -webkit-linear-gradient(top left, #5BAD3F 0%, #8CEF29 100%);)
-}
-  </style>
   <script type="text/javascript">
 function loadbugs(){
   $.get('http://dashboard.koha-community.org/bug_status'
