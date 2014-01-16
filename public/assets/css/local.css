@@ -32,3 +32,8 @@ a {
     text-decoration: none;
 }
 
+.hero-unit h1 {
+    font-family: 'IM Fell English', serif;
+    color: white;
+}
+

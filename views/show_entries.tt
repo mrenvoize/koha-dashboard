@@ -97,7 +97,7 @@ function loadbugs(){
     <div class="row-fluid">
       <div class="span9">
         <div class="hero-unit">
-            <h1>Koha Dashboard</h1>
+            <h1><i>Koha Dashboard</i></h1>
         </div>
       </div>
 
