@@ -35,6 +35,7 @@ a {
 .hero-unit h1 {
     font-family: 'IM Fell English', serif;
     color: white;
+    margin-top: 8px;
 }
 
 .span3 h3 {
