@@ -1,4 +1,4 @@
-000275
+000290
 000001:1243739142.5887311,1,"'<pianohacker> resolve, rather, I doubt it needs lotion'"
 000002:1244045041.212275,1,'<jwagner> Hope springs eternal in little kitty hearts. Better watch the doors :-)'
 000003:1244771755.4169359,3,"""< bignose-work> the only constant in climate over the next several decades will be that the climate doesn't match what you just got used to."""
@@ -268,3 +268,18 @@
 000272:1377742713.9032481,5,"""jcamins: THIS IS A SECURITY RISK -- no kidding. It's Windows."""
 000273:1377824672.939991,5,"""rangi: The main thing I came to realise is -- 'Your cataloguing standards are bad, and you should feel bad' - which translates to - 'friends don't let friends use RDA'"""
 000274:1378095657.223294,5,'eythian: you should have a separate server because messing on production is always a Bad Idea'
+000275:1378483082.254082,1,"""<oleonard> I know a unit test for a flat cookie array, but when I'm done they're all gone: http://imgur.com/e71MZ7e"""
+000276:1378824480.7032559,1,'oleonard shakes his fist and shouts taaaarbaaaaaallll!'
+000277:1379335126.585577,33,"""kivilahtio: jcamins, don't help me :)"""
+000278:1379389828.930217,33,'jcamins: ... OMGOMGOMG MUST FIX ALL THE THINGS.'
+000279:1380168368.4687641,33,"""eythian:\tsteep learning curves are good, because it means in a short time you learn a lot. It's the shallow ones that are bad because over a long time you learn very little."""
+000280:1382710528.7212391,1,'<oleonard> \xce\x9a\xce\xbf\xce\xb7\xce\xb1?'
+000281:1382981899.1493289,1,'cait thinks renewable karma makes a lot of sense'
+000282:1383081170.346185,5,"'mtompset: there will always be bugs, until the length of code is 0.'"
+000283:1383269375.5507071,33,"""<ashimema> ... looks like 'rtfm' only works if you read it right. :P"""
+000284:1385577647.68818,1,"""<cait> you won't suggest cataloguing our bugs in MARC... right?"""
+000285:1387229182.4973609,1,"'<cait> maybe we should keep #koha for the cookies, and split off a dev chat :)'"
+000286:1387296686.7288971,1,'<jcamins> perfect is also embodied in the concrete source code of the absurdist programming movement.'
+000287:1389311306.0306931,5,"""Pianohacker: the only sounds I've ever heard come out of Auth.pm are a nasty, wet splorch"""
+000288:1389659976.1851821,5,'ibeardslee: IE is needed for something to mock'
+000289:1389898768.605299,30,'< tcohen> FOSS for the win!'
