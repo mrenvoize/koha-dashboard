@@ -48,4 +48,8 @@ a {
     font-weight: bold; 
 }   
 
-
+.navbar .nav li a:focus, .navbar .nav li a:hover {
+          color: rgb(184, 184, 184);
+          text-decoration: none;
+          background-color: transparent;
+}
