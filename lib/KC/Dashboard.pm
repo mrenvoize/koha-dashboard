@@ -24,35 +24,48 @@ set 'show_errors'  => 1;
 set 'startup_info' => 1;
 set 'warnings'     => 1;
 
+
 get '/' => sub {
-    my $entries  = last5signoffs(database);
-    my $stats    = monthlyactivity( database, 'Signed Off' );
-    my $qa       = monthlyactivity( database, 'Passed QA' );
-    my $failedqa = monthlyactivity( database, 'Failed QA' );
+    my $bugs_dbh = database('bugs');
+    my $entries  = last5signoffs($bugs_dbh);
+    my $stats    = monthlyactivity( $bugs_dbh, 'Signed Off' );
+    my $qa       = monthlyactivity( $bugs_dbh, 'Passed QA' );
+    my $failedqa = monthlyactivity( $bugs_dbh, 'Failed QA' );
+    my $yearsign = yearlyactivity( $bugs_dbh, 'Signed Off' );
+    my $yearpass = yearlyactivity( $bugs_dbh, 'Passed QA' );
+    my $yearfail = yearlyactivity( $bugs_dbh, 'Failed QA' );
+
     my $sql =
 "SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added like 'Pushed%' AND YEAR(bug_when) = YEAR(NOW()) AND MONTH(bug_when) = MONTH(NOW()) GROUP BY realname,added ORDER BY count(*) desc;";
-    my $sth = database->prepare($sql) or die database->errstr;
+    my $sth = $bugs_dbh->prepare($sql) or die $bugs_dbh->errstr;
     $sth->execute or die $sth->errstr;
     my $pushed = $sth->fetchall_arrayref;
+
+    $sql =
+"SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added like 'Pushed%' AND YEAR(bug_when) = YEAR(NOW()) GROUP BY realname ORDER BY count(*) desc;";
+    my $sth = $bugs_dbh->prepare($sql) or die $bugs_dbh->errstr;
+    $sth->execute or die $sth->errstr;
+    my $yearpush = $sth->fetchall_arrayref;
+
     $sql =
 "SELECT count(*) as count ,subdate(current_date, 1) as day FROM bugs_activity WHERE date(bug_when) = subdate(current_date, 1);";
-    $sth = database->prepare($sql) or die database->errstr;
+    $sth = $bugs_dbh->prepare($sql) or die $bugs_dbh->errstr;
     $sth->execute or die $sth->errstr;
     my $yesterday = $sth->fetchrow_hashref();
     $sql =
 "SELECT count(*) as count, current_date as day FROM bugs_activity WHERE date(bug_when) = current_date;";
-    $sth = database->prepare($sql) or die database->errstr;
+    $sth = $bugs_dbh->prepare($sql) or die $bugs_dbh->errstr;
     $sth->execute or die $sth->errstr;
     my $today = $sth->fetchrow_hashref();
     $sql =
 "SELECT count(*) as count ,subdate(current_date, 2) as day FROM bugs_activity WHERE date(bug_when) = subdate(current_date, 2);";
-    $sth = database->prepare($sql) or die database->errstr;
+    $sth = $bugs_dbh->prepare($sql) or die $bugs_dbh->errstr;
     $sth->execute or die $sth->errstr;
     my $daybefore = $sth->fetchrow_hashref();
     $sql =
 "SELECT bugs.bug_id,short_desc,bug_when FROM bugs,bugs_activity WHERE bugs.bug_id = bugs_activity.bug_id
 AND added = 'Pushed to Master' AND (bug_severity = 'enhancement' OR bug_severity ='new feature') ORDER BY bug_when desc LIMIT 5";
-    $sth = database->prepare($sql) or die database->errstr;
+    $sth = $bugs_dbh->prepare($sql) or die $bugs_dbh->errstr;
     $sth->execute or die $sth->errstr;
     my $enhancement = $sth->fetchall_arrayref;
     my $dates       = get_dates();
@@ -60,7 +73,7 @@ AND added = 'Pushed to Master' AND (bug_severity = 'enhancement' OR bug_severity
 
     $sql =
 "SELECT b.bug_id, short_desc, MAX(bug_when) as bug_when FROM bugs b, bugs_activity ba WHERE b.bug_id=ba.bug_id AND b.bug_status='Signed Off' AND ba.added='Signed Off' GROUP BY b.bug_id ORDER BY bug_when LIMIT 10";
-    $sth = database->prepare($sql) or die database->errstr;
+    $sth = $bugs_dbh->prepare($sql) or die $bugs_dbh->errstr;
     $sth->execute or die $sth->errstr;
     my $old_nqa = $sth->fetchall_arrayref;
 
@@ -84,20 +97,25 @@ AND added = 'Pushed to Master' AND (bug_severity = 'enhancement' OR bug_severity
         'failed'      => $failedqa,
         'old_nqa'     => $old_nqa,
         'pushed'      => $pushed,
+        'yearsign'    => $yearsign,
+        'yearpass'    => $yearpass,
+        'yearfail'    => $yearfail,
+        'yearpush'    => $yearpush,
 
         #        'ohloh'       => $ohloh,
     };
 };
 
 get '/bug_status' => sub {
+    my $bugs_dbh = database('bugs');
     my $sql =
       "SELECT count(*) as count,bug_status FROM bugs GROUP BY bug_status";
-    my $sth = database->prepare($sql) or die database->errstr;
+    my $sth = $bugs_dbh->prepare($sql) or die $bugs_dbh->errstr;
     $sth->execute or die $sth->errstr;
     $sql =
 "SELECT count(*) as count,bug_status FROM bugs WHERE bug_severity <> 'enhancement'
     AND bug_severity <> 'new feature' GROUP BY bug_status";
-    my $sth2 = database->prepare($sql) or die database->errstr;
+    my $sth2 = $bugs_dbh->prepare($sql) or die $bugs_dbh->errstr;
     $sth2->execute;
     template 'bug_status.tt',
       {
@@ -110,7 +128,7 @@ get '/randombug' => sub {
     my $sql =
 "SELECT * FROM (SELECT bug_id,short_desc FROM bugs WHERE bug_status NOT in 
     ('CLOSED','RESOLVED','Pushed to Master','Pushed to Stable','VERIFIED', 'Signed Off', 'Passed QA') ) AS bugs2 ORDER BY rand() LIMIT 1";
-    my $sth = database->prepare($sql) or die database->errstr;
+    my $sth = database('bugs')->prepare($sql) or die database('bugs')->errstr;
     $sth->execute or die $sth->errstr;
 
     template 'randombug.tt', { 'randombug' => $sth->fetchall_arrayref };
@@ -135,27 +153,15 @@ get '/rq' => sub {
 };
 
 get '/needsignoff' => sub {
-    my $sql = "SELECT bugs.bug_id,short_desc FROM bugs
+    my $bugs_dbh = database('bugs');
+    my $sql      = "SELECT bugs.bug_id,short_desc FROM bugs
                WHERE bug_status ='Needs Signoff' and bug_severity <> 'enhancement' and 
                bug_severity <> 'new feature' ORDER by lastdiffed limit 10;";
-    my $sth = database->prepare($sql) or die database->errstr;
+    my $sth = $bugs_dbh->prepare($sql) or die $bugs_dbh->errstr;
     $sth->execute or die $sth->errstr;
     template 'needsignoff.tt', { 'needsignoff' => $sth->fetchall_arrayref };
 
 };
 
-get '/taskboard' => sub {
-    my $sql = "
-    SELECT bugs.bug_id,short_desc,count(attach_id) as patches,bug_severity FROM bugs,attachments WHERE bugs.bug_id = attachments.bug_id AND bug_status ='Needs Signoff' AND attachments.isobsolete = 0 AND attachments.ispatch = 1 GROUP by bugs.bug_id ORDER BY lastdiffed;";
-    my $sth = database->prepare($sql) or die database->errstr;
-    $sth->execute or die $sth->errstr;
-
-    template 'taskboard.tt', { 'bugs' => $sth->fetchall_arrayref };
-};
-
-get '/claimedbugs/needssignoff' => sub {
-    content_type 'application/json';
-        return to_json { 5342 => 1 };
-    };
 true;
 
