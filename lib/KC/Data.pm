@@ -48,7 +48,7 @@ sub last5signoffs {
 sub monthlyactivity {
     my ( $database, $type ) = @_;
     my $sql =
-"SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added=? AND YEAR(bug_when) = YEAR(NOW()) AND MONTH(bug_when) = MONTH(NOW()) GROUP BY realname,added ORDER BY count(*) desc;";
+"SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added=? AND YEAR(bug_when) = YEAR(NOW()) AND MONTH(bug_when) = MONTH(NOW()) AND who != assigned_to GROUP BY realname,added ORDER BY count(*) desc;";
     my $sth = $database->prepare($sql) or die $database->errstr;
     $sth->execute($type) or die $sth->errstr;
     my $stats = $sth->fetchall_arrayref;
@@ -58,7 +58,7 @@ sub monthlyactivity {
 sub yearlyactivity {
     my ( $database, $type ) = @_;
     my $sql =
-"SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added=? AND YEAR(bug_when) = YEAR(NOW()) GROUP BY realname,added ORDER BY count(*) desc;";
+"SELECT realname,count(*) FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid AND bugs.bug_id=bugs_activity.bug_id AND added=? AND YEAR(bug_when) = YEAR(NOW()) AND who != assigned_to GROUP BY realname,added ORDER BY count(*) desc;";
     my $sth = $database->prepare($sql) or die $database->errstr;
     $sth->execute($type) or die $sth->errstr;
     my $stats = $sth->fetchall_arrayref;
