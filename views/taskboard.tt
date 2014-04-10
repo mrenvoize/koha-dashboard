@@ -65,36 +65,53 @@
    </div>
  <script src="assets/js/jquery.js"></script>
  <script src="assets/js/bootstrap-transition.js"></script>
-         <script src="assets/js/bootstrap-alert.js"></script>
-             <script src="assets/js/bootstrap-modal.js"></script>
-                 <script src="assets/js/bootstrap-dropdown.js"></script>
-                     <script src="assets/js/bootstrap-scrollspy.js"></script>
-                         <script src="assets/js/bootstrap-tab.js"></script>
-                             <script src="assets/js/bootstrap-tooltip.js"></script>
-                                 <script src="assets/js/bootstrap-popover.js"></script>
-                                     <script src="assets/js/bootstrap-button.js"></script>
-                                         <script src="assets/js/bootstrap-collapse.js"></script>
-                                             <script src="assets/js/bootstrap-carousel.js"></script>
-                                                 <script src="assets/js/bootstrap-typeahead.js"></script>
-                                                     <script src="assets/js/bootstrap-affix.js"></script>
+ <script src="assets/js/bootstrap-alert.js"></script>
+ <script src="assets/js/bootstrap-modal.js"></script>
+ <script src="assets/js/bootstrap-dropdown.js"></script>
+ <script src="assets/js/bootstrap-scrollspy.js"></script>
+ <script src="assets/js/bootstrap-tab.js"></script>
+ <script src="assets/js/bootstrap-tooltip.js"></script>
+ <script src="assets/js/bootstrap-popover.js"></script>
+ <script src="assets/js/bootstrap-button.js"></script>
+ <script src="assets/js/bootstrap-collapse.js"></script>
+ <script src="assets/js/bootstrap-carousel.js"></script>
+ <script src="assets/js/bootstrap-typeahead.js"></script>
+ <script src="assets/js/bootstrap-affix.js"></script> 
+ <script src="assets/js/google-code-prettify/prettify.js"></script>
+ <script src="assets/js/application.js"></script>
 
-                                                             <script src="assets/js/google-code-prettify/prettify.js"></script>
-
-                                                                 <script src="assets/js/application.js"></script>
 <script>
 $(document).ready(function(){
     $(".btn").click(function() {
+        $id = this.id;
 
-           $('#'+this.id).attr('class','btn btn-link');
+        $.get( "/save/claim", { bug: $id } )
+            .done(function( data ) {
+               $('#'+$id).attr('class','btn btn-link');
+               $('#'+$id).append("<br /> <b>Claimed</b>");
+            }
+        );
     });
-        $("[rel=tooltip]").tooltip({ placement: 'top'});
+    $("[rel=tooltip]").tooltip({ placement: 'top'});
         $.getJSON("/claimedbugs/needssignoff", function(data){ 
             $.each( data, function( key, val ) {
                 $id = '#b' + key;
                 $($id).attr('class','btn btn-link');
-            });
+                $($id).html(key + "<br /> <b>Claimed</b> <br />" + val.date);
         });
+    });
+    setInterval("signoffs()",10000);
 });
+
+function signoffs() {
+    $.getJSON("/claimedbugs/needssignoff", function(data){ 
+        $.each( data, function( key, val ) {
+            $id = '#b' + key;
+            $($id).attr('class','btn btn-link');
+             $($id).html(key + "<br /> <b>Claimed</b> <br />" + val.date);
+        });
+    });
+}
 
 </script>
 </body>

@@ -6,7 +6,7 @@
 <span class="badge badge-important">
 <% END %>
 <% status.${"Needs Signoff"}.count %></span>
-<% IF  bugssign.${"Needs Signoff"}.count < 31 %>
+<% IF  bugssign.${"Needs Signoff"}.count < 41 %>
 <span class="badge badge-success">
 <% ELSE %>
 <span class="badge badge-important">

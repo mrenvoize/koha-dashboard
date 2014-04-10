@@ -167,7 +167,7 @@ body {
 }
 
 a {
-  color: #0088cc;
+  color: #258205;
   text-decoration: none;
 }
 
@@ -3777,6 +3777,8 @@ input[type="submit"].btn.btn-mini {
   color: #999999;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
+  background-color: black
+  background-color: black;;
 }
 
 .nav li + .nav-header {
@@ -4154,13 +4156,30 @@ input[type="submit"].btn.btn-mini {
   min-height: 40px;
   padding-right: 20px;
   padding-left: 20px;
-  background-color: #fafafa;
-  background-image: -moz-linear-gradient(top, #ffffff, #f2f2f2);
+  background-color: black;
+  /* IE10 Consumer Preview */ 
+  background-image: -ms-linear-gradient(top left, #000000 0%, #67695F 100%);
+
+  /* Mozilla Firefox */ 
+  background-image: -moz-linear-gradient(top left, #000000 0%, #67695F 100%);
+
+  /* Opera */ 
+  background-image: -o-linear-gradient(top left, #000000 0%, #67695F 100%);
+
+  /* Webkit (Safari/Chrome 10) */ 
+  background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #000000), color-stop(1, #67695F));
+
+  /* Webkit (Chrome 11+) */ 
+  background-image: -webkit-linear-gradient(top left, #000000 0%, #67695F 100%);
+
+  /* W3C Markup, IE10 Release Preview */ 
+  background-image: linear-gradient(to bottom right, #000000 0%, #67695F 100%);
+/*  background-image: -moz-linear-gradient(top, #ffffff, #f2f2f2);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#f2f2f2));
   background-image: -webkit-linear-gradient(top, #ffffff, #f2f2f2);
   background-image: -o-linear-gradient(top, #ffffff, #f2f2f2);
   background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);
-  background-repeat: repeat-x;
+  background-repeat: repeat-x; */
   border: 1px solid #d4d4d4;
   -webkit-border-radius: 4px;
      -moz-border-radius: 4px;
@@ -4389,9 +4408,9 @@ input[type="submit"].btn.btn-mini {
 .navbar .nav > li > a {
   float: none;
   padding: 10px 15px 10px;
-  color: #777777;
+  color: #ffffff;
   text-decoration: none;
-  text-shadow: 0 1px 0 #ffffff;
+  text-shadow: 0 1px 0 grey;
 }
 
 .navbar .nav .dropdown-toggle .caret {
