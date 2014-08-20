@@ -37,7 +37,7 @@ sub last5signoffs {
     my $sql =
 "SELECT realname,bugs.bug_id,bug_when,short_desc                                            
     FROM bugs_activity,profiles,bugs WHERE bugs_activity.who=profiles.userid
-      AND bugs.bug_id=bugs_activity.bug_id AND added='Signed Off' 
+      AND bugs.bug_id=bugs_activity.bug_id AND added='Signed Off' AND bugs.product_id = 2 
         ORDER BY bug_when DESC LIMIT 5";
     my $sth = $database->prepare($sql) or die $database->errstr;
     $sth->execute or die $sth->errstr;
@@ -88,7 +88,7 @@ sub get_dates {
 }
 
 sub get_devs {
-    open( my $FH, '<', 'data/devs.txt' );
+    open( my $FH, '<:utf8', 'data/devs.txt' );
     my @devs;
     while ( my $line = <$FH> ) {
         my $devrow = { 'dev' => $line };
