@@ -184,16 +184,16 @@ function loadbugs(){
 
       <div class="span3">
         <h3>Build statuses</h3>Master - <a href=
-        'http://jenkins.koha-community.org/job/Koha_master/'><img src='http://jenkins.koha-community.org/job/Koha_master/badge/icon'>
+        'http://jenkins.koha-community.org/job/Koha_master_D7/'><img src='http://jenkins.koha-community.org/job/Koha_master_D7/badge/icon'>
         </a><br>
-        3.8.x - <a href=
-        'http://jenkins.koha-community.org/job/Koha_3.8.x/'><img src='http://jenkins.koha-community.org/job/Koha_3.8.x/badge/icon'>
+        3.16.x - <a href=
+        'http://jenkins.koha-community.org/job/Koha_3.16.x_D7/'><img src='http://jenkins.koha-community.org/job/Koha_3.16.x_D7/badge/icon'>
         </a><br>
-        3.10.x - <a href=
-        'http://jenkins.koha-community.org/job/Koha_3.10.x/'><img src='http://jenkins.koha-community.org/job/Koha_3.10.x/badge/icon'>
+        3.14.x - <a href=
+        'http://jenkins.koha-community.org/job/Koha_3.14.x_D7/'><img src='http://jenkins.koha-community.org/job/Koha_3.14.x_D7/badge/icon'>
         </a><br>
         3.12.x - <a href=
-        'http://jenkins.koha-community.org/job/Koha_3.12.x/'><img src='http://jenkins.koha-community.org/job/Koha_3.12.x/badge/icon'>
+        'http://jenkins.koha-community.org/job/Koha_3.12.x_D7/'><img src='http://jenkins.koha-community.org/job/Koha_3.12.x_D7/badge/icon'>
         </a><br>
         Docs Master - <a href=
         'http://jenkins.koha-community.org/job/Koha_Docs/'><img src='http://jenkins.koha-community.org/job/Koha_Docs/badge/icon'>
